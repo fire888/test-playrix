@@ -14,14 +14,19 @@ import continueImg from '../assets/btn-continue.png'
 export const GOR_FRAME = 'GOR_FRAME'
 export const VERT_FRAME = 'VERT_FRAME'
 export const SQUARE_FRAME = 'SQUARE_FRAME'
-
 export const APP_HEIGHT_CLIPART = 1000
 export const SEGMENTS = 10
 
+export const BACK = 'BACK'
+export const MESSAGE_FINAL = 'MESSAGE_FINAL'
+export const LOGO = 'LOGO'
+export const CONTINUE = 'CONTINUE'
 
 
-export const appContainers = {
-    'back': {
+
+export const componentsData = [
+    {
+        key: BACK,
         constructorElem: Background,
         assetsToLoad: { 
             backImg, 
@@ -33,7 +38,8 @@ export const appContainers = {
         },
         isStartRender: true,
     },
-    'messageFinal': {
+    {
+        key: MESSAGE_FINAL,
         constructorElem: MessageFinal,
         assetsToLoad: {
             messageFinalImg,
@@ -45,7 +51,8 @@ export const appContainers = {
         },
         isStartRender: true,
     },
-    'logo': {
+    {
+        key: LOGO,
         constructorElem: Logo,
         assetsToLoad: {
             logoImg,
@@ -57,10 +64,11 @@ export const appContainers = {
         },
         isStartRender: true,
     },
-    'continue': {
+    {
+        key: CONTINUE,
         constructorElem: Continue,
-        assetsToLoad: { 
-            continueImg, 
+        assetsToLoad: {
+            continueImg,
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 4,   scale: .8 },
@@ -69,4 +77,4 @@ export const appContainers = {
         },
         isStartRender: true,
     },
-}
+]
