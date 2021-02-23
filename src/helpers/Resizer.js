@@ -2,9 +2,7 @@ import {
     GOR_FRAME,
     SQUARE_FRAME, 
     VERT_FRAME,
-} from '../constants/appData'
 
-import {
     APP_HEIGHT_CLIPART,
     SEGMENTS,
 } from '../constants/appData'
@@ -27,7 +25,6 @@ export class Resizer {
         this._appContainer = container
         this._resize()
     }
-
 
 
     setElementToResize (data) {
@@ -71,7 +68,6 @@ const getRatioAndMode = () => {
     if (windowRatio > 0.7) return { mode: SQUARE_FRAME, windowRatio }
     return { mode: VERT_FRAME, windowRatio }
 }
-
 
 
 const getAppSteps = (windowRatio, mode) => {

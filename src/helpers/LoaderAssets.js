@@ -1,6 +1,5 @@
 export class LoaderAssets {
     constructor () {
-
         this._loader = new PIXI.Loader()
         this._loader.onError.add(this._loadHandler.bind(this))
         this._loader.onProgress.add(e => {
