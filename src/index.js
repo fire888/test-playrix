@@ -3,7 +3,7 @@ import { LoaderAssets } from './helpers/LoaderAssets'
 import { Resizer } from './helpers/Resizer'
 import { appContainers } from './constants/appData'
 
-let app, elements = {}
+let app, components = {}
 
 const initApp = () => {
     const domWrapper = document.querySelector('.app-container')
@@ -21,9 +21,10 @@ const addElements = () => {
 
     for (let key in appContainers) {
         const { constructorElem, resizeData } = appContainers[key]
-        const elem = new constructorElem
-        app.container.addChild(elem.container)
-        resizer.setElementToResize({ container: elem.container, resizeData })
+        const component = new constructorElem
+        app.container.addChild(component.container)
+        resizer.setElementToResize({ container: component.container, resizeData })
+        components[key] = component
     }
     //const back = new Background()
     //app.app.stage.addChild(back.sprite)

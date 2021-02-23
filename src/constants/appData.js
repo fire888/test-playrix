@@ -17,7 +17,7 @@ export const appContainers = {
             backImg, 
         },
         resizeData: {
-            GOR_FRAME:    { x: 0, y: 0, scale: 1.6 },
+            GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
             VERT_FRAME:   { x: 0, y: 0, scale: 1 },
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         }
@@ -28,9 +28,9 @@ export const appContainers = {
             continueImg, 
         },
         resizeData: {
-            GOR_FRAME:    { x: 0, y: 0, scale: 1.6 },
-            VERT_FRAME:   { x: 0, y: 0, scale: 1 },
-            SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
+            GOR_FRAME:    { x: -5, y: 4, scale: .8 },
+            VERT_FRAME:   { x: 0, y: 3.5, scale: .6},
+            SQUARE_FRAME: { x: 0, y: 4, scale: .8 },
         }
     },
 }
