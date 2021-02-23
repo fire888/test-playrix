@@ -4,14 +4,15 @@ import {
     VERT_FRAME,
 } from '../constants/appData'
 
+import {
+    APP_HEIGHT_CLIPART,
+    SEGMENTS,
+} from '../constants/appData'
+
 
 
 export class Resizer {
     constructor() {
-        this._mode = null // GOR_FRAME, VERT_FRAME, SQUARE_FRAME
-        this._windowRatio = null
-        this._appW = null
-        this._appH = null
         this._appContainer = null
         this._arrElems = []
 
@@ -39,9 +40,9 @@ export class Resizer {
 
     _resize () {
         const { windowRatio, mode } = getRatioAndMode()
-        const { stepW, stepH, globalScale } = getAppSteps(windowRatio, mode)
+        const { stepW, stepH, appScale } = getAppSteps(windowRatio, mode)
 
-
+        /** Set game container to center */
         if (this._appContainer) {
             this._appContainer.x = window.innerWidth / 2
             this._appContainer.y = window.innerHeight / 2
@@ -51,9 +52,9 @@ export class Resizer {
         for (let i = 0; i < this._arrElems.length; ++i) {
             const { container, resizeData } = this._arrElems[i]
             const { x, y, scale } = resizeData[mode]
-            container.x = stepW * x
-            container.y = stepH * y
-            container.scale.set(scale * globalScale)
+            container.x = x * stepW
+            container.y = y * stepH
+            container.scale.set(scale * appScale)
         }
     }
 }
@@ -89,11 +90,9 @@ const getAppSteps = (windowRatio, mode) => {
         appH = windowRatio > .4 ? window.innerHeight : window.innerWidth * 2
     }
 
-    /** Set coordinates from global values to -5 to 5 */
-    const stepW = appW / 2 / 5
-    const stepH = appH / 2 / 5
+    const stepW = appW / SEGMENTS
+    const stepH = appH / SEGMENTS
+    const appScale = appH / APP_HEIGHT_CLIPART
 
-    const globalScale = appH / 1000
-
-    return { stepW, stepH, globalScale }
+    return { stepW, stepH, appScale }
 }

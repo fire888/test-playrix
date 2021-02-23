@@ -20,8 +20,9 @@ const addElements = () => {
     resizer.setAppContainerForResize(app.container)
 
     for (let key in appContainers) {
-        const { constructorElem, resizeData } = appContainers[key]
+        const { constructorElem, resizeData, isStartRender } = appContainers[key]
         const component = new constructorElem
+        component.container.renderable = isStartRender
         app.container.addChild(component.container)
         resizer.setElementToResize({ container: component.container, resizeData })
         components[key] = component
