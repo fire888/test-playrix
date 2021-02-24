@@ -1,6 +1,8 @@
 import { App } from './elements/App'
 import { LoaderAssets } from './helpers/LoaderAssets'
 import { Resizer } from './helpers/Resizer'
+import { FrameUpdater } from './helpers/FrameUpdater'
+import { Tween } from './helpers/Tween'
 import { componentsData } from './constants/appData'
 import { GameManager } from './managers/GameManager'
 
@@ -18,13 +20,19 @@ const initApp = (appData, callback) => {
     const domWrapper = document.querySelector('.app-container')
     const app = new App({}, domWrapper)
     domWrapper.appendChild(app.app.view)
+
     const resizer = new Resizer()
     resizer.setAppContainerForResize(app.container)
 
+    const frameUpdater = new FrameUpdater()
+    const tween = new Tween(frameUpdater)
+
     callback({
         ...appData,
-        resizer,
         app,
+        resizer,
+        frameUpdater,
+        tween,
     })
 }
 
@@ -51,7 +59,10 @@ const addElements = (appData, callback) => {
 
 const initPlay = (appData, callback) => {
     const gameManager = new GameManager(appData)
-    gameManager.startPlay(() => callback({ ...appData }))
+    gameManager.startPlay(() => callback({ 
+        ...appData,
+        gameManager, 
+    }))
 }
 
 

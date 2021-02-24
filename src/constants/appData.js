@@ -221,9 +221,9 @@ export const componentsData = [
             keyImgs: ['stairs_00Img']
         },
         resizeData: {
-            GOR_FRAME:    { x: -1, y: 0, scale: 1 },
-            VERT_FRAME:   { x: -1, y: 0, scale: .5 },
-            SQUARE_FRAME: { x: -1, y: 0, scale: .7 },
+            GOR_FRAME:    { x: 6, y: 1, scale: 1 },
+            VERT_FRAME:   { x: 6, y: 2, scale: .5 },
+            SQUARE_FRAME: { x: 6, y: 1, scale: 1 },
         },
         isStartRender: true,
     },
@@ -421,6 +421,6 @@ export const componentsData = [
             VERT_FRAME:   { x: 0,  y: 3.5, scale: .6 },
             SQUARE_FRAME: { x: 0,  y: 4,   scale: .8 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
 ]
