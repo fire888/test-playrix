@@ -21,10 +21,9 @@ import carpet3Img from '../assets/carpet3.png'
 import { BtnHummer } from '../elements/BtnHummer'
 import iconHummerImg from '../assets/icon-hummer.png'
 
-import { Austin } from '../elements/Austin'
-import austinImg from '../assets/austin.png'
 
 import { EasySprite } from '../elements/EasySprite'
+import austinImg from '../assets/austin.png'
 import item1Img from '../assets/item_1.png'
 import item2Img from '../assets/item_2.png'
 import item3Img from '../assets/item_3.png'
@@ -32,6 +31,19 @@ import item4Img from '../assets/item_4.png'
 import item5Img from '../assets/item_5.png'
 import item6Img from '../assets/item_6.png'
 
+
+
+import { Stairs } from '../elements/Stairs'
+import stairs_00Img from '../assets/stairs_00.png'
+import stairs_01_01Img from '../assets/stairs_01_01.png'
+import stairs_01_02Img from '../assets/stairs_01_02.png'
+import stairs_01_03Img from '../assets/stairs_01_03.png'
+import stairs_02_01Img from '../assets/stairs_02_01.png'
+import stairs_02_02Img from '../assets/stairs_02_02.png'
+import stairs_02_03Img from '../assets/stairs_02_03.png'
+import stairs_03_01Img from '../assets/stairs_03_01.png'
+import stairs_03_02Img from '../assets/stairs_03_02.png'
+import stairs_03_03Img from '../assets/stairs_03_03.png'
 
 
 
@@ -55,12 +67,20 @@ export const ICON_CARPET_2 = 'ICON_CARPET_2'
 export const ICON_CARPET_3 = 'ICON_CARPET_3'
 export const BTN_HUMMER = 'BTN_HUMMER'
 export const AUSTIN = 'AUSTIN'
-export const PLUNT = 'PLUNT'
+export const STAIRS_00 = 'STAIRS_00'
+export const STAIRS_01 = 'STAIRS_01'
+export const STAIRS_02 = 'STAIRS_02'
+export const STAIRS_03 = 'STAIRS_03'
 
 
 
 
 export const componentsData = [
+
+    /** ************************************
+     * BACK
+     ***************************************/
+
     {
         key: BACK,
         constructorElem: Background,
@@ -73,12 +93,20 @@ export const componentsData = [
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         },
         isStartRender: true,
-    },    
+    },
+
+    /** ************************************
+     * ITEMS
+     ***************************************/
+
     {
         key: AUSTIN,
-        constructorElem: Austin,
+        constructorElem: EasySprite,
         assetsToLoad: { 
             austinImg,
+        },
+        config: {
+            keyImg: 'austinImg',
         },
         resizeData: {
             GOR_FRAME:    { x: -4, y: 0, scale: 1.8 },
@@ -180,6 +208,88 @@ export const componentsData = [
         },
         isStartRender: true,
     },
+
+    /** ************************************
+     * STAIRS
+     ***************************************/
+    {
+        key: STAIRS_00,
+        constructorElem: Stairs,
+        assetsToLoad: {
+            stairs_00Img,
+        },
+        config: {
+            keyImgs: ['stairs_00Img']
+        },
+        resizeData: {
+            GOR_FRAME:    { x: -1, y: 0, scale: 1 },
+            VERT_FRAME:   { x: -1, y: 0, scale: .5 },
+            SQUARE_FRAME: { x: -1, y: 0, scale: .7 },
+        },
+        isStartRender: true,
+    },
+
+    {
+        key: STAIRS_01,
+        constructorElem: Stairs,
+        assetsToLoad: {
+            stairs_01_01Img,
+            stairs_01_02Img,
+            stairs_01_03Img,
+        },
+        config: {
+            keyImgs: ['stairs_01_03Img', 'stairs_01_02Img', 'stairs_01_01Img'],
+        },
+        resizeData: {
+            GOR_FRAME:    { x: 1, y: 0, scale: 1 },
+            VERT_FRAME:   { x: 1, y: 0, scale: .5 },
+            SQUARE_FRAME: { x: 1, y: 0, scale: .7 },
+        },
+        isStartRender: true,
+    },
+
+    {
+        key: STAIRS_02,
+        constructorElem: Stairs,
+        assetsToLoad: {
+            stairs_02_01Img,
+            stairs_02_02Img,
+            stairs_02_03Img,
+        },
+        config: {
+            keyImgs: ['stairs_02_03Img', 'stairs_02_02Img', 'stairs_02_01Img'],
+        },
+        resizeData: {
+            GOR_FRAME:    { x: 3, y: 0, scale: 1 },
+            VERT_FRAME:   { x: 3, y: 0, scale: .5 },
+            SQUARE_FRAME: { x: 3, y: 0, scale: .7 },
+        },
+        isStartRender: true,
+    },
+
+    {
+        key: STAIRS_03,
+        constructorElem: Stairs,
+        assetsToLoad: {
+            stairs_03_01Img,
+            stairs_03_02Img,
+            stairs_03_03Img,
+        },
+        config: {
+            keyImgs: ['stairs_03_03Img', 'stairs_03_02Img', 'stairs_03_01Img'],
+        },
+        resizeData: {
+            GOR_FRAME:    { x: 5, y: 0, scale: 1 },
+            VERT_FRAME:   { x: 5, y: 0, scale: .5 },
+            SQUARE_FRAME: { x: 5, y: 0, scale: .7 },
+        },
+        isStartRender: true,
+    },
+
+    /** ************************************
+     * ITEMS TOP
+     ***************************************/
+
     {
         key: 'item6',
         constructorElem: EasySprite,
@@ -196,6 +306,12 @@ export const componentsData = [
         },
         isStartRender: true,
     },
+
+
+    /** ************************************
+     * CONTROLS
+     ***************************************/
+
     {
         key: ICON_CARPET_1,
         constructorElem: BtnCarpet,

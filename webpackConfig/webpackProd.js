@@ -5,7 +5,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = () => {    
-    const config = merge.merge(appCommonConfig(environment), {
+    const config = merge.merge(appCommonConfig(), {
         mode: 'production',
         output: {
             path: path.resolve(__dirname, '../dist'),
