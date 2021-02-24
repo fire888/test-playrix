@@ -2,46 +2,69 @@ import { App } from './elements/App'
 import { LoaderAssets } from './helpers/LoaderAssets'
 import { Resizer } from './helpers/Resizer'
 import { componentsData } from './constants/appData'
+import { GameManager } from './managers/GameManager'
 
 
-const loadAssets = () => {
+
+
+const loadAssets = (appData, callback) => {
     const loader = new LoaderAssets()
     const assetsAll = getAssetsFromAppData(componentsData)
-    loader.load(assetsAll, initApp)
+    loader.load(assetsAll, () => callback(appData))
 }
  
 
-const initApp = () => {
+const initApp = (appData, callback) => {
     const domWrapper = document.querySelector('.app-container')
     const app = new App({}, domWrapper)
     domWrapper.appendChild(app.app.view)
     const resizer = new Resizer()
     resizer.setAppContainerForResize(app.container)
 
-    const context = { resizer, app }
-    addElements(context)
+    callback({
+        ...appData,
+        resizer,
+        app,
+    })
 }
 
 
-const addElements = appContext => {
-    const { app, resizer } = appContext
+const addElements = (appData, callback) => {
+    const { app, resizer, emitter } = appData
 
     const components = {}
     for (let i = 0; i < componentsData.length; ++i) {
         const { key, constructorElem, resizeData, isStartRender, config } = componentsData[i]
-        const component = new constructorElem(config || null)
+        const component = new constructorElem({ key, emitter, config })
         component.container.renderable = isStartRender
         app.container.addChild(component.container)
         resizer.setElementToResize({ key, container: component.container, resizeData })
         components[key] = component
     }
 
-    appContext.components = components
+    callback({
+        ...appData,
+        components
+    })
+}
+
+
+const initPlay = (appData, callback) => {
+    const gameManager = new GameManager(appData)
+    gameManager.startPlay(() => callback({...appData}))
+}
+
+
+const onGameComplete = (appData, callback) => {
+    console.log('Game complete.')
+    callback(appData)
 }
 
 
 
-/** helper ****************************************************** */
+
+
+/** helpers ****************************************************** */
 
 const getAssetsFromAppData = data => {
     const assets = {}
@@ -53,8 +76,21 @@ const getAssetsFromAppData = data => {
     return assets
 }
 
+const iterate = (arr, index = 0, data = {}) =>
+    arr[index] && arr[index](data, newData => iterate(arr, ++index, newData))
+
+
+
+
+
 
 /** init ****************************************************** */
 
-loadAssets()
 
+iterate([
+    loadAssets,
+    initApp,
+    addElements,
+    initPlay,
+    onGameComplete,
+])

@@ -1,16 +1,12 @@
-import { Background } from '../elements/Background'
-import backImg from '../assets/back.png'
-
-import { Logo } from '../elements/Logo'
-import logoImg from '../assets/logo.png'
-
 import { MessageFinal } from '../elements/MessageFinal'
 import messageFinalImg from '../assets/message-final.png'
 
-import { BtnContinue } from '../elements/BtnContinue'
-import continueImg from '../assets/btn-continue.png' 
+import { Btn } from '../elements/Btn'
+import continueImg from '../assets/btn-continue.png'
+import iconHummerImg from '../assets/icon-hummer.png'
 
-import { BtnCarpet } from '../elements/BtnCarpet'
+
+import { BtnStairs } from '../elements/BtnStairs'
 import btnOkImg from '../assets/btn-ok.png'
 import iconHoverImg from '../assets/icon-hover.png'
 import iconIdleImg from '../assets/icon-idle.png'
@@ -18,11 +14,10 @@ import carpet1Img from '../assets/carpet1.png'
 import carpet2Img from '../assets/carpet2.png'
 import carpet3Img from '../assets/carpet3.png'
 
-import { BtnHummer } from '../elements/BtnHummer'
-import iconHummerImg from '../assets/icon-hummer.png'
-
 
 import { EasySprite } from '../elements/EasySprite'
+import backImg from '../assets/back.png'
+import logoImg from '../assets/logo.png'
 import austinImg from '../assets/austin.png'
 import item1Img from '../assets/item_1.png'
 import item2Img from '../assets/item_2.png'
@@ -61,16 +56,17 @@ export const SEGMENTS = 10
 export const BACK = 'BACK'
 export const MESSAGE_FINAL = 'MESSAGE_FINAL'
 export const LOGO = 'LOGO'
-export const CONTINUE = 'CONTINUE'
-export const ICON_CARPET_1 = 'ICON_CARPET_1'
-export const ICON_CARPET_2 = 'ICON_CARPET_2'
-export const ICON_CARPET_3 = 'ICON_CARPET_3'
-export const BTN_HUMMER = 'BTN_HUMMER'
 export const AUSTIN = 'AUSTIN'
+export const BTN_CONTINUE = 'BTN_CONTINUE'
+export const BTN_HUMMER = 'BTN_HUMMER'
+export const BTN_STAIRS_01 = 'BTN_STAIRS_01'
+export const BTN_STAIRS_02 = 'BTN_STAIRS_02'
+export const BTN_STAIRS_03 = 'BTN_STAIRS_03'
 export const STAIRS_00 = 'STAIRS_00'
 export const STAIRS_01 = 'STAIRS_01'
 export const STAIRS_02 = 'STAIRS_02'
 export const STAIRS_03 = 'STAIRS_03'
+
 
 
 
@@ -83,9 +79,12 @@ export const componentsData = [
 
     {
         key: BACK,
-        constructorElem: Background,
+        constructorElem: EasySprite,
         assetsToLoad: { 
             backImg, 
+        },
+        config: {
+            keyImg: 'backImg',
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
@@ -245,7 +244,7 @@ export const componentsData = [
             VERT_FRAME:   { x: 1, y: 0, scale: .5 },
             SQUARE_FRAME: { x: 1, y: 0, scale: .7 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
 
     {
@@ -264,7 +263,7 @@ export const componentsData = [
             VERT_FRAME:   { x: 3, y: 0, scale: .5 },
             SQUARE_FRAME: { x: 3, y: 0, scale: .7 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
 
     {
@@ -283,7 +282,7 @@ export const componentsData = [
             VERT_FRAME:   { x: 5, y: 0, scale: .5 },
             SQUARE_FRAME: { x: 5, y: 0, scale: .7 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
 
     /** ************************************
@@ -313,8 +312,8 @@ export const componentsData = [
      ***************************************/
 
     {
-        key: ICON_CARPET_1,
-        constructorElem: BtnCarpet,
+        key: BTN_STAIRS_01,
+        constructorElem: BtnStairs,
         assetsToLoad: { 
             btnOkImg,
             iconHoverImg,
@@ -329,11 +328,11 @@ export const componentsData = [
             VERT_FRAME:   { x: -2, y: 0, scale: 1   },
             SQUARE_FRAME: { x: -2, y: 0, scale: 1.2 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
     {
-        key: ICON_CARPET_2,
-        constructorElem: BtnCarpet,
+        key: BTN_STAIRS_02,
+        constructorElem: BtnStairs,
         assetsToLoad: { 
             carpet2Img,
         },
@@ -345,11 +344,11 @@ export const componentsData = [
             VERT_FRAME:   { x: 0, y: 0, scale: 1   },
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
     {
-        key: ICON_CARPET_3,
-        constructorElem: BtnCarpet,
+        key: BTN_STAIRS_03,
+        constructorElem: BtnStairs,
         assetsToLoad: { 
             carpet3Img,
         },
@@ -361,20 +360,23 @@ export const componentsData = [
             VERT_FRAME:   { x: 2, y: 0, scale: 1   },
             SQUARE_FRAME: { x: 2, y: 0, scale: 1.2 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
     {
         key: BTN_HUMMER,
-        constructorElem: BtnHummer,
+        constructorElem: Btn,
         assetsToLoad: { 
             iconHummerImg,
+        },
+        config: {
+            keyImg: 'iconHummerImg',
         },
         resizeData: {
             GOR_FRAME:    { x: 2, y: -2, scale: 1.8 },
             VERT_FRAME:   { x: 2, y: -2, scale: 1   },
             SQUARE_FRAME: { x: 2, y: -2, scale: 1.2 },
         },
-        isStartRender: true,
+        isStartRender: false,
     },
     {
         key: MESSAGE_FINAL,
@@ -391,9 +393,12 @@ export const componentsData = [
     },
     {
         key: LOGO,
-        constructorElem: Logo,
+        constructorElem: EasySprite,
         assetsToLoad: {
             logoImg,
+        },
+        config: {
+            keyImg: 'logoImg',
         },
         resizeData: {
             GOR_FRAME:    { x: -3.5, y: -4, scale: 1.2 },
@@ -403,10 +408,13 @@ export const componentsData = [
         isStartRender: true,
     },
     {
-        key: CONTINUE,
-        constructorElem: BtnContinue,
+        key: BTN_CONTINUE,
+        constructorElem: Btn,
         assetsToLoad: {
             continueImg,
+        },
+        config: {
+            keyImg: 'continueImg',
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 4,   scale: .8 },

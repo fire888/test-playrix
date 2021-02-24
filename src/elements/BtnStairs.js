@@ -1,5 +1,7 @@
-export class BtnCarpet {
-    constructor (config) {
+export class BtnStairs {
+    constructor ({ key, config }) {
+        this.key = key
+
         const { keyCarpetImg } = config
 
         this.container = new PIXI.Container()
