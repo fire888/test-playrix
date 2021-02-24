@@ -55,7 +55,7 @@ const initPlay = (appData, callback) => {
 }
 
 
-const onGameComplete = (appData, callback) => {
+const logGameComplete = (appData, callback) => {
     console.log('Game complete.')
     callback({ ...appData })
 }
@@ -88,5 +88,5 @@ iterate([
     initApp,
     addElements,
     initPlay,
-    onGameComplete,
+    logGameComplete,
 ])
