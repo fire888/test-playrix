@@ -42,7 +42,6 @@ export class Tween {
 }
 
 
-const ran = () => Math.floor(Math.random() * 100000)
 
 const tweens = {
     'linear': ({
@@ -105,6 +104,7 @@ const tweens = {
 }
 
 
+const ran = () => Math.floor(Math.random() * 100000)
 
 const interpolate = (x1, x2, x3, t) => ((1 - t) * (1 - t) * x1) + (2 * t * (1 - t) * x2) + (t * t * x3)
 
@@ -120,7 +120,6 @@ const interpolateTwoVals = (x1, x2, x3, x4, t) => {
 
 const backOut = amount => t => (--t * t * ((amount + 1) * t + amount) + 1)
 
-
 const easeOutElastic = x => {
     const c4 = (2 * Math.PI) / 3
     
@@ -128,7 +127,7 @@ const easeOutElastic = x => {
       ? 0
       : x === 1
       ? 1
-      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
     
-    }
+}
 
