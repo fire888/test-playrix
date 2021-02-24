@@ -44,22 +44,21 @@ const addElements = (appData, callback) => {
 
     callback({
         ...appData,
-        components
+        components,
     })
 }
 
 
 const initPlay = (appData, callback) => {
     const gameManager = new GameManager(appData)
-    gameManager.startPlay(() => callback({...appData}))
+    gameManager.startPlay(() => callback({ ...appData }))
 }
 
 
 const onGameComplete = (appData, callback) => {
     console.log('Game complete.')
-    callback(appData)
+    callback({ ...appData })
 }
-
 
 
 
@@ -82,10 +81,7 @@ const iterate = (arr, index = 0, data = {}) =>
 
 
 
-
-
-/** init ****************************************************** */
-
+/** start ******************************************************* */
 
 iterate([
     loadAssets,
