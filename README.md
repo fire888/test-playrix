@@ -8,7 +8,7 @@
 
 About
 ------------
-Test task by [Let's play](https://drive.google.com/file/d/17Dl4rjo0l2D83olU1yYjUTQuVUeVgrHW/view)
+Test task by [specification](https://drive.google.com/file/d/17Dl4rjo0l2D83olU1yYjUTQuVUeVgrHW/view).
 
 
 Play
