@@ -8,9 +8,9 @@ export class LoaderAssets {
     }
 
     load (data, callback) {
-        for (let key in data) {
+        for (let key in data)
             this._loader.add(key, data[key])
-        }
+
         this._loader.load(callback)
     }
 
