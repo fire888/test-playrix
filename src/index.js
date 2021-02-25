@@ -123,20 +123,21 @@ const execute = (arr, data, index = 0) =>
 
 /** start ******************************************************* */
 
-execute([
-    loadAssets,
-    initApp,
-    addElements,
-    initAppManagers,
-    startStairsGame,
-    resetToStart,
-    logProcess,
-    startStairsGame,
-    resetToStart,
-    logProcess,
-    startStairsGame,
-    logProcess,
-    logComplete,
-], { 
-    startComponentsData: START_COMPONENTS_DATA 
-})
+execute(
+    [
+        loadAssets,
+        initApp,
+        addElements,
+        initAppManagers,
+        startStairsGame,
+        resetToStart,
+        logProcess,
+        startStairsGame,
+        resetToStart,
+        logProcess,
+        startStairsGame,
+        logProcess,
+        logComplete,
+    ], 
+    { startComponentsData: START_COMPONENTS_DATA },
+)
