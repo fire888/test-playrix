@@ -3,15 +3,18 @@ import { LoaderAssets } from './helpers/LoaderAssets'
 import { Resizer } from './helpers/Resizer'
 import { FrameUpdater } from './helpers/FrameUpdater'
 import { Tween } from './helpers/Tween'
-import { componentsData } from './constants/appData'
 import { GameManager } from './managers/GameManager'
+import { START_COMPONENTS_DATA } from './constants/constants'
 
 
 
+
+/** app states **************************************** */
 
 const loadAssets = (appData, callback) => {
+    const { startComponentsData  } = appData
     const loader = new LoaderAssets()
-    const assetsAll = getAssetsFromAppData(componentsData)
+    const assetsAll = getAssetsFromAppData(startComponentsData)
     loader.load(assetsAll, () => callback(appData))
 }
  
@@ -22,7 +25,7 @@ const initApp = (appData, callback) => {
     domWrapper.appendChild(app.app.view)
 
     const resizer = new Resizer()
-    resizer.setAppContainerForResize(app.container)
+    resizer.setAppForResize(app)
 
     const frameUpdater = new FrameUpdater()
     const tween = new Tween(frameUpdater)
@@ -38,15 +41,15 @@ const initApp = (appData, callback) => {
 
 
 const addElements = (appData, callback) => {
-    const { app, resizer, emitter } = appData
+    const { app, resizer, emitter, startComponentsData } = appData
 
     const components = {}
-    for (let i = 0; i < componentsData.length; ++i) {
-        const { key, constructorElem, resizeData, isStartRender, config } = componentsData[i]
+    for (let i = 0; i < startComponentsData.length; ++i) {
+        const { key, constructorElem, resizeData, isStartRender, config } = startComponentsData[i]
         const component = new constructorElem({ key, emitter, config })
         component.container.renderable = isStartRender
         app.container.addChild(component.container)
-        resizer.setElementToResize({ key, container: component.container, resizeData })
+        resizeData && resizer.setElementToResize({ key, container: component.container, resizeData })
         components[key] = component
     }
 
@@ -57,18 +60,44 @@ const addElements = (appData, callback) => {
 }
 
 
-const initPlay = (appData, callback) => {
-    const gameManager = new GameManager(appData)
-    gameManager.startPlay(() => callback({ 
+const initAppManagers = (appData, callback) => {
+    const gameManager = new GameManager()
+    return callback({
         ...appData,
-        gameManager, 
+        gameManager,
+    })
+}
+
+
+const startStairsGame = (appData, callback) => {
+    const { gameManager } = appData
+    gameManager.startStairsPlay(appData, newGameData => callback({
+        ...appData,
+        ...newGameData,
     }))
 }
 
 
-const logGameComplete = (appData, callback) => {
-    console.log('Game complete.')
-    callback({ ...appData })
+const resetToStart = (appData, callback) => {
+    const { gameManager } = appData
+    gameManager.resetToStart(appData, newGameData => {
+        callback({
+        ...appData,
+        ...newGameData,
+    })})
+}
+
+
+const logProcess = (appData, callback) => {
+    const { stairsPlayed, restarted } = appData
+    console.log(`Played stairs: ${ stairsPlayed }. Restarted: ${ restarted }`)
+    callback(appData)
+}
+
+
+const logComplete = (appData, callback) => {
+    console.log(`Game complete.`)
+    callback(appData)
 }
 
 
@@ -86,18 +115,26 @@ const getAssetsFromAppData = data => {
     return assets
 }
 
-const iterate = (arr, index = 0, data = {}) =>
-    arr[index] && arr[index](data, newData => iterate(arr, ++index, newData))
+const execute = (arr, index = 0, data = { startComponentsData: START_COMPONENTS_DATA }) =>
+    arr[index] && arr[index](data, newData => execute(arr, ++index, newData))
 
 
 
 
 /** start ******************************************************* */
 
-iterate([
+execute([
     loadAssets,
     initApp,
     addElements,
-    initPlay,
-    logGameComplete,
+    initAppManagers,
+    startStairsGame,
+    resetToStart,
+    logProcess,
+    startStairsGame,
+    resetToStart,
+    logProcess,
+    startStairsGame,
+    logProcess,
+    logComplete,
 ])

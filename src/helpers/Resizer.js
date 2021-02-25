@@ -1,11 +1,11 @@
 import {
     GOR_FRAME,
     SQUARE_FRAME, 
-    VERT_FRAME,
+    TOP_FRAME,
 
     APP_HEIGHT_CLIPART,
     SEGMENTS,
-} from '../constants/appData'
+} from '../constants/constants'
 
 
 
@@ -21,8 +21,8 @@ export class Resizer {
 
     /** public **************************/
 
-    setAppContainerForResize (container) {
-        this._appContainer = container
+    setAppForResize (pixiApp) {
+        this._app = pixiApp
         this._resize()
     }
 
@@ -40,9 +40,9 @@ export class Resizer {
         const { stepW, stepH, appScale } = getAppSteps(windowRatio, mode)
 
         /** Set game container to center */
-        if (this._appContainer) {
-            this._appContainer.x = window.innerWidth / 2
-            this._appContainer.y = window.innerHeight / 2
+        if (this._app) {
+            this._app.container.x = this._app.app.view.width / 2
+            this._app.container.y = this._app.app.view.height / 2
         }
 
 
@@ -66,7 +66,7 @@ const getRatioAndMode = () => {
 
     if (windowRatio > 1.3) return { mode: GOR_FRAME, windowRatio }
     if (windowRatio > 0.7) return { mode: SQUARE_FRAME, windowRatio }
-    return { mode: VERT_FRAME, windowRatio }
+    return { mode: TOP_FRAME, windowRatio }
 }
 
 
@@ -80,7 +80,7 @@ const getAppSteps = (windowRatio, mode) => {
     } else if (mode === SQUARE_FRAME) {
         appW = window.innerWidth
         appH = window.innerHeight
-    } else if (mode === VERT_FRAME) {
+    } else if (mode === TOP_FRAME) {
         /** Max height equal two app width */
         appW = window.innerWidth
         appH = windowRatio > .4 ? window.innerHeight : window.innerWidth * 2

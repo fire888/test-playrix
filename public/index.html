@@ -15,18 +15,24 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       overflow: hidden;
     }
-
+    .app-wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000000;
+    }
     .app-container {
       width: 100vw;
       height: 100vh;
+      max-width: 200vh;
+      max-height: 200vw;
     }
   </style>
 </head>
-<body>
-  <div class="app-container"></div>
-</body>
+<body><div class="app-wrapper"><div class="app-container"></div></div></body>
 </html>

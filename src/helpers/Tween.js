@@ -10,7 +10,7 @@ export class Tween {
 
     create (data) {
         let onComplete = () => {}
-        const key = ran()
+        const key = rand()
 
         const tweenData = {
             ...data,
@@ -79,7 +79,6 @@ const tweens = {
             actionWithValue,
             callback,
         }) => () => {
-            //const easing = backOut(.1)
             const phase = Math.min(1, (Date.now() - timeStarted) / duration)
             const value = lerp(fromValue, toValue, easeOutElastic(phase))
             actionWithValue(value)
@@ -104,7 +103,7 @@ const tweens = {
 }
 
 
-const ran = () => Math.floor(Math.random() * 100000)
+const rand = () => Math.floor(Math.random() * 100000)
 
 const interpolate = (x1, x2, x3, t) => ((1 - t) * (1 - t) * x1) + (2 * t * (1 - t) * x2) + (t * t * x3)
 
@@ -120,14 +119,12 @@ const interpolateTwoVals = (x1, x2, x3, x4, t) => {
 
 const backOut = amount => t => (--t * t * ((amount + 1) * t + amount) + 1)
 
-const easeOutElastic = x => {
-    const c4 = (2 * Math.PI) / 3
-    
-    return x === 0
+const C4 = (2 * Math.PI) / 3
+const easeOutElastic = x =>
+    x === 0
       ? 0
       : x === 1
-      ? 1
-      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
-    
-}
+        ? 1
+        : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * C4) + 1
+
 
