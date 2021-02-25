@@ -83,6 +83,11 @@ export class GameManager {
             btnStairs03.disable()
             btnConfirm.disable()
 
+            tween.toggleView(btnStairs01, 0)
+            tween.toggleView(btnStairs02, 0)
+            tween.toggleView(btnStairs03, 0)
+            tween.toggleView(btnConfirm, 0)
+
             /** show final message */
             tween.toggleView(messageFinal, 1)
             tween.toggleView(btnContinue, 1)
@@ -131,10 +136,10 @@ export class GameManager {
 
     _selectFromElements (items, confirmItem, onSelect) {
         const { tween } = this._appData
-        let currentItem = null
+        //let currentItem = null
 
         items.forEach(item => item.onClick(key => {
-            currentItem = key
+            //currentItem = key
             tween.toggleView(confirmItem, 1)
             tween.dropDown(confirmItem, 'spr', 100)
 
