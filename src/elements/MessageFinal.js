@@ -9,7 +9,7 @@ export class MessageFinal {
         dark.beginFill(0x000000);
         dark.drawRect(-DARK_W / 2, -DARK_H / 2, DARK_W, DARK_H);
         dark.endFill()
-        dark.alpha = .7
+        dark.alpha = 1
 
         this.container.addChild(dark)
 

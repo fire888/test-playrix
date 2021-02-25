@@ -1,10 +1,11 @@
 export class App {
-    constructor(gameContext, parentDom) {
+    constructor({ resolution, domWrapper }) {
+
         this.app = new PIXI.Application({
-            resizeTo: parentDom,
+            resizeTo: domWrapper,
             autoResize: true,
             autoDensity: false,
-            resolution: window.devicePixelRatio,
+            resolution,
             autoStart: true,
             antialias: false,
             transparent: false,

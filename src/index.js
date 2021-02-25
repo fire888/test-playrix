@@ -20,11 +20,12 @@ const loadAssets = (appData, callback) => {
  
 
 const initApp = (appData, callback) => {
+    const resizer = new Resizer()
+
     const domWrapper = document.querySelector('.app-container')
-    const app = new App({}, domWrapper)
+    const app = new App({ resolution: resizer.resolution, domWrapper })
     domWrapper.appendChild(app.app.view)
 
-    const resizer = new Resizer()
     resizer.setAppForResize(app)
 
     const frameUpdater = new FrameUpdater()

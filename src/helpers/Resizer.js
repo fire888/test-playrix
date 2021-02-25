@@ -11,8 +11,9 @@ import {
 
 export class Resizer {
     constructor() {
-        this._appContainer = null
+        this._app = null
         this._arrElems = []
+        this.resolution = Math.max(window.innerWidth, window.innerHeight) > 700 ? 1 : 3
 
         window.addEventListener('resize', this._resize.bind(this))
         this._resize()
@@ -39,10 +40,11 @@ export class Resizer {
         const { windowRatio, mode } = getRatioAndMode()
         const { stepW, stepH, appScale } = getAppSteps(windowRatio, mode)
 
+
         /** Set game container to center */
         if (this._app) {
-            this._app.container.x = this._app.app.view.width / 2
-            this._app.container.y = this._app.app.view.height / 2
+            this._app.container.x = this._app.app.view.width / 2 / this.resolution
+            this._app.container.y = this._app.app.view.height / 2 / this.resolution
         }
 
 

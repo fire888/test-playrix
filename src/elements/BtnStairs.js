@@ -37,10 +37,10 @@ export class BtnStairs {
     }
 
     setCurrent () {
-        this._hover.renderable = true
+        this._hover.alpha = 1
 
     }
     clearCurrent () {
-        this._hover.renderable = false
+        this._hover.alpha = 0
     }
 }
