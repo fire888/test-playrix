@@ -25,7 +25,7 @@ export class GameManager {
          * STAIRS PLAY
          ********************************** */
 
-        pause(1500, () => {
+        pause(700, () => {
 
             /** show hummer */
             this._toggleView(btnHummer, 1)
