@@ -49,6 +49,12 @@ export const SQUARE_FRAME = 'SQUARE_FRAME'
 export const APP_HEIGHT_CLIPART = 1000
 export const SEGMENTS = 10
 
+export const DARK_W = 3000
+export const DARK_H = 3000
+export const DARK_ALPHA = .7
+
+
+
 
 
 
@@ -69,7 +75,7 @@ export const START_COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: 0, y: 0, scale: 1   },
+            TOP_FRAME:   { x: 0, y: 0, scale: 1.1   },
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         },
         isStartRender: true,

@@ -22,9 +22,8 @@ const loadAssets = (appData, callback) => {
 const initApp = (appData, callback) => {
     const resizer = new Resizer()
 
-    const domWrapper = document.querySelector('.app-container')
-    const app = new App({ resolution: resizer.resolution, domWrapper })
-    domWrapper.appendChild(app.app.view)
+    const app = new App({ resolution: resizer.resolution, domContainer: resizer.domContainer })
+    resizer.domContainer.appendChild(app.app.view)
 
     resizer.setAppForResize(app)
 

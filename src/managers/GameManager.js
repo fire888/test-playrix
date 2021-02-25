@@ -113,6 +113,11 @@ export class GameManager {
             this._appData.components[key].container.renderable = isStartRender
         }
 
+        // TODO: very bad... move to config
+        /** show broken stairs again */
+        this._appData.components['stairs00'].container.alpha = 1
+
+        /** onComplete */
         let { restarted } = this._appData
         onComplete({ restarted: ++restarted || 1 })
     }

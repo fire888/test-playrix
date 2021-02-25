@@ -1,5 +1,10 @@
-const DARK_W = 3000
-const DARK_H = 3000
+import {
+    DARK_W,
+    DARK_H,
+    DARK_ALPHA,
+} from '../constants/constants'
+
+
 
 export class MessageFinal {
     constructor () {
@@ -9,7 +14,7 @@ export class MessageFinal {
         dark.beginFill(0x000000);
         dark.drawRect(-DARK_W / 2, -DARK_H / 2, DARK_W, DARK_H);
         dark.endFill()
-        dark.alpha = 1
+        dark.alpha = DARK_ALPHA
 
         this.container.addChild(dark)
 

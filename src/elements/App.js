@@ -1,9 +1,9 @@
 export class App {
-    constructor({ resolution, domWrapper }) {
+    constructor({ resolution, domContainer }) {
 
         this.app = new PIXI.Application({
-            resizeTo: domWrapper,
-            autoResize: true,
+            resizeTo: domContainer,
+            autoResize: false,
             autoDensity: false,
             resolution,
             autoStart: true,
