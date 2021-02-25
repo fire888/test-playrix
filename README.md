@@ -8,7 +8,7 @@
 
 About
 ------------
-Test task by [Let's play](https://mail.google.com/mail/u/0/#inbox/FMfcgxwLsdCsklCflqdQVCmzvvdlmHXs?projector=1)
+Test task by [Let's play](https://drive.google.com/file/d/17Dl4rjo0l2D83olU1yYjUTQuVUeVgrHW/view)
 
 
 Play
