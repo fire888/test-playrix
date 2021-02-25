@@ -1,6 +1,7 @@
 export class Tween {
     constructor (frameUpdater) {
         this._arrTweens = []
+        this._pulseTweens = []
 
         this._frameUpdater = frameUpdater
         this._frameUpdater.addFunction(this._updateTweens.bind(this))
@@ -8,7 +9,125 @@ export class Tween {
 
     /** public ********************************** */
 
-    create (data) {
+    toggleView(item, toValue) {
+
+        let fromValue = 1
+        if (toValue === 1) {
+            fromValue = 0
+            item.container.alpha = 0
+            item.container.renderable = true
+        }
+
+        const show = this._create({
+            tweenType: 'linear',
+            fromValue,
+            toValue,
+            duration: 100,
+            actionWithValue: val => item.container.alpha = val,
+        })
+        show.start()
+            .then(() => {
+                if (toValue === 0) {
+                    item.container.renderable = false
+                }
+            })
+    }
+
+
+    showScale (item) {
+        const scale = this._create({
+            tweenType: 'linear',
+            fromValue: 0,
+            toValue: .7,
+            duration: 300,
+            actionWithValue: val => item.container.scale.set(.3 + val),
+        })
+        scale.start()
+    }
+
+
+    dropDown(item, key, size) {
+        const drop = sp => {
+            const show = this._create({
+                tweenType: 'eraseTween',
+                fromValue: 0,
+                toValue: 1,
+                duration: 500,
+                actionWithValue: val => {
+                    sp.y = val * size
+                    sp.alpha = val
+                }
+            })
+            show.start()
+        }
+
+
+        if (Array.isArray(item[key])) {
+            item.container.alpha = 1
+            item.container.renderable = true
+            item[key].forEach(sp => sp.alpha = 0)
+
+            const offsetTime = 200
+            for (let i = 0; i < item[key].length; ++i) {
+                setTimeout(() => drop(item[key][i]), i * offsetTime)
+            }
+        } else {
+            item.container.alpha = 0
+            item.container.renderable = true
+            drop(item[key])
+        }
+    }
+
+
+    startPulse( item, key, size ) {
+        const pulseFunction = () => {
+            let isNext = true
+            let move = null
+
+            const iterate = () => {
+                move = this._create({
+                    tweenType: 'autoUpdateColumnTwoVals',
+                    fromValue: 0,
+                    middleValueOne: -.5,
+                    middleValueTwo: .5,
+                    toValue: 0.001,
+                    duration: 500,
+                    actionWithValue: val => item[key].scale.set(1 + val * size),
+                })
+                move.start()
+                    .then(() => isNext && iterate())
+            }
+
+            iterate()
+
+            return {
+                key: item.key,
+                stop () {
+                    isNext = false
+                    move.stop()
+                }
+            }
+        }
+
+        this._pulseTweens.push(pulseFunction())
+    }
+
+
+    stopPulse (keyItem) {
+        for(let i = 0; i < this._pulseTweens.length; ++i) {
+            const { key, stop } = this._pulseTweens[i]
+            if (key === keyItem) {
+                stop()
+                this._pulseTweens = this._pulseTweens.filter(item => item.key !== keyItem)
+            }
+        }
+    }
+
+
+    /** intrnal  ******************************** */
+
+
+    _create (data) {
         let onComplete = () => {}
         const key = rand()
 
@@ -31,8 +150,6 @@ export class Tween {
         }
     }
 
-
-    /** intrnal  ******************************** */
     
     _updateTweens () {
         for (let i = 0; i < this._arrTweens.length; ++i) {
@@ -45,31 +162,17 @@ export class Tween {
 
 const tweens = {
     'linear': ({
-            timeStarted,
-            fromValue,
-            toValue,
-            duration,
-            actionWithValue,
-            callback,
-        }) => () => {
-            const phase = Math.min(1, (Date.now() - timeStarted) / duration)
-            actionWithValue((toValue - fromValue) * phase)
-            phase === 1 && callback()
-        },
-
-    'simpleTween': ({
-            timeStarted,
-            fromValue,
-            toValue,
-            duration,
-            actionWithValue,
-            callback,
-        }) => () => {
-            const phase = Math.min(1, (Date.now() - timeStarted) / duration)
-            const value = lerp(fromValue, toValue, phase)
-            actionWithValue(value)
-            phase === 1 && callback()
-        },
+        timeStarted,
+        fromValue,
+        toValue,
+        duration,
+        actionWithValue,
+        callback,
+    }) => () => {
+        const phase = Math.min(1, (Date.now() - timeStarted) / duration)
+        actionWithValue((toValue - fromValue) * phase)
+        phase === 1 && callback()
+    },
 
     'eraseTween': ({
             timeStarted,
@@ -105,8 +208,6 @@ const tweens = {
 
 const rand = () => Math.floor(Math.random() * 100000)
 
-const interpolate = (x1, x2, x3, t) => ((1 - t) * (1 - t) * x1) + (2 * t * (1 - t) * x2) + (t * t * x3)
-
 const lerp = (x1, x2, t) => x1 * (1 - t) + x2 * t;
 
 const interpolateTwoVals = (x1, x2, x3, x4, t) => {
@@ -117,7 +218,6 @@ const interpolateTwoVals = (x1, x2, x3, x4, t) => {
     return v1 + v2 + v3 + v4
 }
 
-const backOut = amount => t => (--t * t * ((amount + 1) * t + amount) + 1)
 
 const C4 = (2 * Math.PI) / 3
 const easeOutElastic = x =>

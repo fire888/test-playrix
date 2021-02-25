@@ -23,8 +23,8 @@ const initApp = (appData, callback) => {
     const resizer = new Resizer()
 
     const app = new App({ resolution: resizer.resolution, domContainer: resizer.domContainer })
+    
     resizer.domContainer.appendChild(app.app.view)
-
     resizer.setAppForResize(app)
 
     const frameUpdater = new FrameUpdater()
@@ -115,8 +115,8 @@ const getAssetsFromAppData = data => {
     return assets
 }
 
-const execute = (arr, index = 0, data = { startComponentsData: START_COMPONENTS_DATA }) =>
-    arr[index] && arr[index](data, newData => execute(arr, ++index, newData))
+const execute = (arr, data, index = 0) =>
+    arr[index] && arr[index](data, newData => execute(arr, newData, ++index))
 
 
 
@@ -137,4 +137,6 @@ execute([
     startStairsGame,
     logProcess,
     logComplete,
-])
+], { 
+    startComponentsData: START_COMPONENTS_DATA 
+})

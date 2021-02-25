@@ -85,38 +85,7 @@ export const START_COMPONENTS_DATA = [
      * ITEMS
      ***************************************/
 
-    {
-        key: 'hero',
-        constructorElem: EasySprite,
-        assetsToLoad: { 
-            austinImg,
-        },
-        config: {
-            keyImg: 'austinImg',
-        },
-        resizeData: {
-            GOR_FRAME:    { x: -4, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: -4, y: 0, scale: 1   },
-            SQUARE_FRAME: { x: -4, y: 0, scale: 1.2 },
-        },
-        isStartRender: true,
-    },
-    {
-        key: 'item01',
-        constructorElem: EasySprite,
-        assetsToLoad: { 
-            item1Img,
-        },
-        config: {
-            keyImg: 'item1Img'
-        },
-        resizeData: {
-            GOR_FRAME:    { x: -4, y: 3, scale: 1.8 },
-            TOP_FRAME:   { x: -4, y: 3, scale: 1   },
-            SQUARE_FRAME: { x: -4, y: 3, scale: 1.2 },
-        },
-        isStartRender: true,
-    },
+
     {
         key: 'item02',
         constructorElem: EasySprite,
@@ -134,19 +103,6 @@ export const START_COMPONENTS_DATA = [
         isStartRender: true,
     },
     {
-        key: 'item02_2',
-        constructorElem: EasySprite,
-        config: {
-            keyImg: 'item2Img'
-        },
-        resizeData: {
-            GOR_FRAME:    { x: -3, y: -3, scale: 1.8 },
-            TOP_FRAME:   { x: -3, y: -3, scale: 1   },
-            SQUARE_FRAME: { x: -3, y: -3, scale: 1.2 },
-        },
-        isStartRender: true,
-    },
-    {
         key: 'item03',
         constructorElem: EasySprite,
         assetsToLoad: { 
@@ -156,30 +112,14 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'item3Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 4, y: -3, scale: 1.8 },
+            GOR_FRAME:    { x: 5, y: -3, scale: 1.8 },
             TOP_FRAME:   { x: 4, y: -3, scale: 1   },
             SQUARE_FRAME: { x: 4, y: -3, scale: 1.2 },
         },
         isStartRender: true,
     },
     {
-        key: 'item04',
-        constructorElem: EasySprite,
-        assetsToLoad: { 
-            item4Img,
-        },
-        config: {
-            keyImg: 'item4Img'
-        },
-        resizeData: {
-            GOR_FRAME:    { x: 3, y: -2, scale: 1.8 },
-            TOP_FRAME:   { x: 3, y: -2, scale: 1   },
-            SQUARE_FRAME: { x: 3, y: -2, scale: 1.2 },
-        },
-        isStartRender: true,
-    },
-    {
-        key: 'item05',
+        key: 'table',
         constructorElem: EasySprite,
         assetsToLoad: { 
             item5Img,
@@ -188,12 +128,58 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'item5Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 3, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: 3, y: 0, scale: 1   },
-            SQUARE_FRAME: { x: 3, y: 0, scale: 1.2 },
+            GOR_FRAME:    { x: 0, y: -3, scale: 1 },
+            TOP_FRAME:    { x: 0, y: -2, scale: 1   },
+            SQUARE_FRAME: { x: 0, y: -2, scale: 1 },
         },
         isStartRender: true,
     },
+    {
+        key: 'globe',
+        constructorElem: EasySprite,
+        assetsToLoad: { 
+            item4Img,
+        },
+        config: {
+            keyImg: 'item4Img'
+        },
+        resizeData: {
+            GOR_FRAME:    { x: 2, y: -3.5, scale: 1.4 },
+            TOP_FRAME:    { x: 3, y: -2, scale: 1   },
+            SQUARE_FRAME: { x: 3, y: -2, scale: 1.2 },
+        },
+        isStartRender: true,
+    },
+    {
+        key: 'hero',
+        constructorElem: EasySprite,
+        assetsToLoad: { 
+            austinImg,
+        },
+        config: {
+            keyImg: 'austinImg',
+        },
+        resizeData: {
+            GOR_FRAME:    { x: -3, y: 0, scale: 1.2 },
+            TOP_FRAME:    { x: -2, y: 0, scale: 1.3   },
+            SQUARE_FRAME: { x: -2, y: 0, scale: 1.2 },
+        },
+        isStartRender: true,
+    },
+    {
+        key: 'item02_2',
+        constructorElem: EasySprite,
+        config: {
+            keyImg: 'item2Img'
+        },
+        resizeData: {
+            GOR_FRAME:    { x: 4.5, y: -2, scale: 1.6 },
+            TOP_FRAME:    { x: 4,   y: -2, scale: 1.6 },
+            SQUARE_FRAME: { x: 4,   y: -2, scale: 1.6 },
+        },
+        isStartRender: true,
+    },
+
 
     /** ************************************
      * STAIRS
@@ -208,9 +194,9 @@ export const START_COMPONENTS_DATA = [
             keyImgs: ['stairs_00Img']
         },
         resizeData: {
-            GOR_FRAME:    { x: 6, y: 1, scale: 1 },
-            TOP_FRAME:   { x: 6, y: 2, scale: .5 },
-            SQUARE_FRAME: { x: 6, y: 1, scale: 1 },
+            GOR_FRAME:    { x: 6.7, y: 0, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
+            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
         },
         isStartRender: true,
     },
@@ -227,9 +213,9 @@ export const START_COMPONENTS_DATA = [
             keyImgs: ['stairs_01_03Img', 'stairs_01_02Img', 'stairs_01_01Img'],
         },
         resizeData: {
-            GOR_FRAME:    { x: 1, y: 0, scale: 1 },
-            TOP_FRAME:   { x: 1, y: 0, scale: .5 },
-            SQUARE_FRAME: { x: 1, y: 0, scale: .7 },
+            GOR_FRAME:    { x: 6.7, y: -1, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
+            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -246,9 +232,9 @@ export const START_COMPONENTS_DATA = [
             keyImgs: ['stairs_02_03Img', 'stairs_02_02Img', 'stairs_02_01Img'],
         },
         resizeData: {
-            GOR_FRAME:    { x: 3, y: 0, scale: 1 },
-            TOP_FRAME:   { x: 3, y: 0, scale: .5 },
-            SQUARE_FRAME: { x: 3, y: 0, scale: .7 },
+            GOR_FRAME:    { x: 6.7, y: -1, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
+            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -265,9 +251,9 @@ export const START_COMPONENTS_DATA = [
             keyImgs: ['stairs_03_03Img', 'stairs_03_02Img', 'stairs_03_01Img'],
         },
         resizeData: {
-            GOR_FRAME:    { x: 5, y: 0, scale: 1 },
-            TOP_FRAME:   { x: 5, y: 0, scale: .5 },
-            SQUARE_FRAME: { x: 5, y: 0, scale: .7 },
+            GOR_FRAME:    { x: 6.7, y: -1, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
+            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -275,9 +261,24 @@ export const START_COMPONENTS_DATA = [
     /** ************************************
      * ITEMS TOP
      ***************************************/
-
     {
-        key: 'item_06',
+        key: 'sofa',
+        constructorElem: EasySprite,
+        assetsToLoad: { 
+            item1Img,
+        },
+        config: {
+            keyImg: 'item1Img'
+        },
+        resizeData: {
+            GOR_FRAME:    { x: -4, y: 2.5, scale: 1.6 },
+            TOP_FRAME:    { x: -100, y: 3, scale: 1.4   },
+            SQUARE_FRAME: { x: -5, y: 3, scale: 1.6 },
+        },
+        isStartRender: true,
+    },
+    {
+        key: 'plunt',
         constructorElem: EasySprite,
         assetsToLoad: { 
             item6Img,
@@ -286,9 +287,9 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'item6Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: -4, y: 3, scale: 1.8 },
-            TOP_FRAME:   { x: -4, y: 3, scale: 1   },
-            SQUARE_FRAME: { x: -4, y: 3, scale: 1.2 },
+            GOR_FRAME:    { x: 5, y: 3.2, scale: 1.8 },
+            TOP_FRAME:    { x: 5, y: 3.2, scale: 1.8 },
+            SQUARE_FRAME: { x: 5, y: 3.2, scale: 1.8 },
         },
         isStartRender: true,
     },
@@ -305,15 +306,15 @@ export const START_COMPONENTS_DATA = [
             btnOkImg,
             iconHoverImg,
             iconIdleImg,
-            carpet1Img,
+            carpet2Img,
         },
         config: {
-            keyCarpetImg: 'carpet1Img'
+            keyCarpetImg: 'carpet2Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: -2, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: -2, y: 0, scale: 1   },
-            SQUARE_FRAME: { x: -2, y: 0, scale: 1.2 },
+            GOR_FRAME:    { x: 1.3, y: 1, scale: 1.1 },
+            TOP_FRAME:    { x: 0.5, y: 1, scale: 0.8 },
+            SQUARE_FRAME: { x: 1.3, y: 1, scale: 1.1 },
         },
         isStartRender: false,
     },
@@ -321,15 +322,15 @@ export const START_COMPONENTS_DATA = [
         key: 'btnStairs02',
         constructorElem: BtnStairs,
         assetsToLoad: { 
-            carpet2Img,
+            carpet1Img,
         },
         config: {
-            keyCarpetImg: 'carpet2Img'
+            keyCarpetImg: 'carpet1Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: 0, y: 0, scale: 1   },
-            SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
+            GOR_FRAME:    { x: 2.3, y: -0.2, scale: 1.1 },
+            TOP_FRAME:    { x: 1.7, y: 0, scale: 0.8 },
+            SQUARE_FRAME: { x: 2.3, y: 0, scale: 1.1 },
         },
         isStartRender: false,
     },
@@ -343,9 +344,9 @@ export const START_COMPONENTS_DATA = [
             keyCarpetImg: 'carpet3Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 2, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: 2, y: 0, scale: 1   },
-            SQUARE_FRAME: { x: 2, y: 0, scale: 1.2 },
+            GOR_FRAME:    { x: 3.6, y: -.5, scale: 1.1 },
+            TOP_FRAME:    { x: 3.6, y: -.5, scale: 0.8 },
+            SQUARE_FRAME: { x: 3.6, y: -.5, scale: 1.1 },
         },
         isStartRender: false,
     },
@@ -370,9 +371,9 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'iconHummerImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: 2, y: -2, scale: 1.8 },
-            TOP_FRAME:   { x: 2, y: -2, scale: 1   },
-            SQUARE_FRAME: { x: 2, y: -2, scale: 1.2 },
+            GOR_FRAME:    { x: 3,   y: 0, scale: 1.8 },
+            TOP_FRAME:    { x: 1.5, y: 0, scale: 1.3 },
+            SQUARE_FRAME: { x: 3,   y: 0, scale: 1.2 },
         },
         isStartRender: false,
     },
