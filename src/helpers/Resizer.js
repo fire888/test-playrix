@@ -18,10 +18,8 @@ export class Resizer {
         this._domWrapper = document.querySelector('.app-wrapper')
         this.domContainer = document.querySelector('.app-container')
 
-        this._isNewResize = false
-
-        window.addEventListener('resize', this._resize.bind(this))
-        this._resize()
+        window.addEventListener('resize', this.resize.bind(this))
+        this.resize()
     }
 
 
@@ -29,19 +27,19 @@ export class Resizer {
 
     setAppForResize (pixiApp) {
         this._app = pixiApp
-        this._resize()
+        this.resize()
     }
 
 
     setElementToResize (data) {
         this._arrElems.push(data)
-        this._resize()
+        this.resize()
     } 
 
 
     /** internal **************************/
 
-    _resize () {
+    resize () {
         const { windowRatio, mode, w, h } = getRatioAndMode()
         const { stepW, stepH, appScale } = getAppSteps(windowRatio, mode, w, h)
 

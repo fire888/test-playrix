@@ -35,13 +35,13 @@ export class Tween {
     }
 
 
-    showScale (item) {
+    showScale (item, keySprite) {
         const scale = this._create({
             tweenType: 'linear',
-            fromValue: 0,
-            toValue: .7,
+            fromValue: .3,
+            toValue: 1,
             duration: 300,
-            actionWithValue: val => item.container.scale.set(.3 + val),
+            actionWithValue: val => item[keySprite].scale.set(val),
         })
         scale.start()
     }

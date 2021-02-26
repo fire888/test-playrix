@@ -5,7 +5,7 @@ export class GameManager {
     startStairsPlay (appData, onComplete) {
         this._appData = appData
 
-        const { tween, elements } = this._appData
+        const { tween, resizer, elements } = this._appData
 
         const {
             btnHummer,
@@ -39,6 +39,7 @@ export class GameManager {
         ))
         .then(waitForClick.bind(this, btnHummer))
         .then(pause.bind(null, 0, () => {
+            resizer.resize()
 
             /** hide old stairs */
             tween.stopPulse('btnHummer')
@@ -48,17 +49,17 @@ export class GameManager {
 
             /** show stairs buttons */
             tween.toggleView(btnStairs01, 1)
-            tween.showScale(btnStairs01)
+            tween.showScale(btnStairs01, 'spr')
         }))
         .then(pause.bind(null, 150, () => {
 
             tween.toggleView(btnStairs02, 1)
-            tween.showScale(btnStairs02)
+            tween.showScale(btnStairs02, 'spr')
         }))
         .then(pause.bind(null, 150, () => {
 
             tween.toggleView(btnStairs03, 1)
-            tween.showScale(btnStairs03)
+            tween.showScale(btnStairs03, 'spr')
         }))
         .then(this._selectFromElements.bind(this, [ btnStairs01, btnStairs02, btnStairs03 ], btnConfirm, clickedKey => {
 
@@ -104,6 +105,7 @@ export class GameManager {
             /** hide continue button */
             tween.stopPulse('btnContinue')
             tween.toggleView(btnContinue, 0)
+            btnContinue.disable()
 
             /** game complete */
             let { stairsPlayed } = this._appData
@@ -157,11 +159,7 @@ export class GameManager {
 
 const waitForClick = item => new Promise(resolve => item.onClick(resolve))
 
-const pause = (time, callback) => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            callback()
-            resolve()
-        }, time)
-    })
-}
+const pause = (time, callback) => new Promise(resolve => setTimeout(() => {
+    callback()
+    resolve()
+}, time))

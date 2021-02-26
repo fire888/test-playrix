@@ -104,7 +104,8 @@ const initAppManagers = (appData, callback) => {
 
 
 const startStairsGame = (appData, callback) => {
-    const { gameManager } = appData
+    const { gameManager, resizer } = appData
+    resizer.resize()
     gameManager.startStairsPlay(appData, newGameData => callback({
         ...appData,
         ...newGameData,
