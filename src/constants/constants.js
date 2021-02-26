@@ -58,7 +58,7 @@ export const LOADING_00 = 'LOADING_00'
 export const LOADING_01 = 'LOADING_01'
 
 
-export const COMPONENTS_DATA = [
+export const ELEMENTS_DATA = [
 
     /** ************************************
      * BACK
@@ -76,7 +76,7 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
-            TOP_FRAME:    { x: 0, y: 0, scale: 1.1   },
+            TOP_FRAME:    { x: 0, y: 0, scale: 1.1 },
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         },
         isStartRender: true,
@@ -132,7 +132,7 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: -3, scale: 1 },
-            TOP_FRAME:    { x: 0, y: -2, scale: 1   },
+            TOP_FRAME:    { x: 0, y: -2, scale: 1 },
             SQUARE_FRAME: { x: 0, y: -2, scale: 1 },
         },
         isStartRender: true,
@@ -149,8 +149,8 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 2, y: -3.5, scale: 1.4 },
-            TOP_FRAME:    { x: 3, y: -2, scale: 1   },
-            SQUARE_FRAME: { x: 3, y: -2, scale: 1.2 },
+            TOP_FRAME:    { x: 3, y: -2, scale: 1     },
+            SQUARE_FRAME: { x: 3, y: -2, scale: 1.2   },
         },
         isStartRender: true,
     },
@@ -166,7 +166,7 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: -3, y: 0, scale: 1.2 },
-            TOP_FRAME:    { x: -2, y: 0, scale: 1.3   },
+            TOP_FRAME:    { x: -2, y: 0, scale: 1.3 },
             SQUARE_FRAME: { x: -2, y: 0, scale: 1.2 },
         },
         isStartRender: true,
@@ -221,8 +221,8 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 6.7, y: -1, scale: 1.4 },
-            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
-            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0,  scale: 1.2 },
+            SQUARE_FRAME: { x: 7.5, y: 0,  scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -241,8 +241,8 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 6.7, y: -1, scale: 1.4 },
-            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
-            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0,  scale: 1.2 },
+            SQUARE_FRAME: { x: 7.5, y: 0,  scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -261,8 +261,8 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 6.7, y: -1, scale: 1.4 },
-            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
-            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
+            TOP_FRAME:    { x: 9,   y: 0, scale: 1.2  },
+            SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4  },
         },
         isStartRender: false,
     },
@@ -418,9 +418,9 @@ export const COMPONENTS_DATA = [
             keyImg: 'logoImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: -3.5, y: -4, scale: 1.2  },
-            TOP_FRAME:    { x: 0,    y: -3.5, scale: .9 },
-            SQUARE_FRAME: { x: -3,   y: -4, scale: 1.2  },
+            GOR_FRAME:    { x: -3.5, y: -4,   scale: 1.2  },
+            TOP_FRAME:    { x: 0,    y: -3.5, scale: .9   },
+            SQUARE_FRAME: { x: -3,   y: -4,   scale: 1.2  },
         },
         isStartRender: true,
     },
@@ -436,8 +436,8 @@ export const COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 3.5,   scale: .8  },
-            TOP_FRAME:    { x: 0,  y: 3.5, scale: .6   },
-            SQUARE_FRAME: { x: 0,  y: 3.5,   scale: .8 },
+            TOP_FRAME:    { x: 0,  y: 3.5,  scale: .6  },
+            SQUARE_FRAME: { x: 0,  y: 3.5,  scale: .8  },
         },
         isStartRender: false,
     },

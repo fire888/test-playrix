@@ -4,7 +4,7 @@ import { Resizer } from './helpers/Resizer'
 import { FrameUpdater } from './helpers/FrameUpdater'
 import { Tween } from './helpers/Tween'
 import { GameManager } from './managers/GameManager'
-import { COMPONENTS_DATA } from './constants/constants'
+import { ELEMENTS_DATA } from './constants/constants'
 
 import { LOADING_00, LOADING_01 } from './constants/constants'
 
@@ -14,8 +14,8 @@ import { LOADING_00, LOADING_01 } from './constants/constants'
 /** app states **************************************** */
 
 const loadStartScreenAssets = (appData, callback) => {
-    const { componentsData  } = appData
-     const assets = getAssetsByLoadingFlag(componentsData, LOADING_00)
+    const { elementsData  } = appData
+     const assets = getAssetsByLoadingFlag(elementsData, LOADING_00)
      loadGameAssets(assets, () => callback(appData))
 }
 
@@ -42,32 +42,32 @@ const initApp = (appData, callback) => {
 
 
 const createComponents = (appData, callback) => {
-    const { app, resizer, emitter, componentsData } = appData
+    const { app, resizer, emitter, elementsData } = appData
 
-    const components = {}
-    for (let i = 0; i < componentsData.length; ++i) {
-        const { key, constructorElem, resizeData, isStartRender, config } = componentsData[i]
+    const elements = {}
+    for (let i = 0; i < elementsData.length; ++i) {
+        const { key, constructorElem, resizeData, isStartRender, config } = elementsData[i]
         const component = new constructorElem({ key, emitter, config })
         component.container.renderable = isStartRender
         app.container.addChild(component.container)
         resizeData && resizer.setElementToResize({ key, container: component.container, resizeData })
-        components[key] = component
+        elements[key] = component
     }
 
     callback({
         ...appData,
-        components,
+        elements,
     })
 }
 
 
 const initStartElements = (appData, callback) => {
-    const { componentsData } = appData
+    const { elementsData } = appData
     initElementsByProp({
         prop: 'assetsLoadingFlag',
         val: LOADING_00,
-        componentsData,
-        components: appData.components,
+        elementsData,
+        elements: appData.elements,
     })
 
     callback(appData)
@@ -75,19 +75,19 @@ const initStartElements = (appData, callback) => {
 
 
 const loadMoreGameAssets= (appData, callback) => {
-    const { componentsData  } = appData
-    const assets = getAssetsByLoadingFlag(componentsData, LOADING_01)
+    const { elementsData  } = appData
+    const assets = getAssetsByLoadingFlag(elementsData, LOADING_01)
     loadGameAssets(assets, () => callback(appData))
 }
 
 
 const initMoreGameElements = (appData, callback) => {
-    const { componentsData } = appData
+    const { elementsData } = appData
     initElementsByProp({
         prop: 'assetsLoadingFlag',
         val: LOADING_01,
-        componentsData,
-        components: appData.components,
+        elementsData,
+        elements: appData.elements,
     })
 
     callback(appData)
@@ -139,8 +139,8 @@ const logComplete = (appData, callback) => {
 
 /** helpers ****************************************************** */
 
-const getAssetsByLoadingFlag = (componentsData, flag) => {
-    const filteredComponents = componentsData.filter(item => item.assetsLoadingFlag === flag)
+const getAssetsByLoadingFlag = (elementsData, flag) => {
+    const filteredComponents = elementsData.filter(item => item.assetsLoadingFlag === flag)
     const assets = {}
     for (let i = 0; i < filteredComponents.length; ++i) {
         for (let keyAsset in filteredComponents[i].assetsToLoad) {
@@ -157,10 +157,10 @@ const loadGameAssets = (assets, callback) => {
 }
 
 
-const initElementsByProp = ({ prop,  val, componentsData, components  }) => {
-    for (let i = 0; i < componentsData.length; ++i) {
-        if (componentsData[i][prop] === val) {
-            components[componentsData[i].key].init()
+const initElementsByProp = ({ prop,  val, elementsData, elements  }) => {
+    for (let i = 0; i < elementsData.length; ++i) {
+        if (elementsData[i][prop] === val) {
+            elements[elementsData[i].key].init()
         }
     }
 }
@@ -193,5 +193,5 @@ execute(
         logProcess,
         logComplete,
     ], 
-    { componentsData: COMPONENTS_DATA },
+    { elementsData: ELEMENTS_DATA },
 )

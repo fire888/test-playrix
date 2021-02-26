@@ -5,7 +5,7 @@ export class GameManager {
     startStairsPlay (appData, onComplete) {
         this._appData = appData
 
-        const { tween, components } = this._appData
+        const { tween, elements } = this._appData
 
         const {
             btnHummer,
@@ -19,7 +19,7 @@ export class GameManager {
             stairs03,
             messageFinal,
             btnContinue,
-        } = components
+        } = elements
 
 
 
@@ -114,17 +114,17 @@ export class GameManager {
 
     resetToStart (appData, onComplete) {
         this._appData = appData
-        const { componentsData } = this._appData
+        const { elementsData } = this._appData
 
         /** reset all items */
-        for (let i = 0; i < componentsData.length; ++i) {
-            const { key, isStartRender } = componentsData[i]
-            this._appData.components[key].container.renderable = isStartRender
+        for (let i = 0; i < elementsData.length; ++i) {
+            const { key, isStartRender } = elementsData[i]
+            this._appData.elements[key].container.renderable = isStartRender
         }
 
         // TODO: very bad... move to config
         /** show broken stairs again */
-        this._appData.components['stairs00'].container.alpha = 1
+        this._appData.elements['stairs00'].container.alpha = 1
 
         /** onComplete */
         let { restarted } = this._appData
@@ -136,10 +136,8 @@ export class GameManager {
 
     _selectFromElements (items, confirmItem, onSelect) {
         const { tween } = this._appData
-        //let currentItem = null
 
         items.forEach(item => item.onClick(key => {
-            //currentItem = key
             tween.toggleView(confirmItem, 1)
             tween.dropDown(confirmItem, 'spr', 100)
 
