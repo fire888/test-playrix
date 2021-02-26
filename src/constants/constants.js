@@ -323,7 +323,7 @@ export const ELEMENTS_DATA = [
         resizeData: {
             GOR_FRAME:    { x: 1.3, y: 1, scale: 1.8 },
             TOP_FRAME:    { x: 0.5, y: 1, scale: 1.2 },
-            SQUARE_FRAME: { x: 1.3, y: 1, scale: 1.8 },
+            SQUARE_FRAME: { x: 1.3, y: 1, scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -340,7 +340,7 @@ export const ELEMENTS_DATA = [
         resizeData: {
             GOR_FRAME:    { x: 2.3, y: -0.2, scale: 1.8 },
             TOP_FRAME:    { x: 1.7, y: 0,    scale: 1.2 },
-            SQUARE_FRAME: { x: 2.3, y: 0,    scale: 1.8 },
+            SQUARE_FRAME: { x: 2.3, y: 0,    scale: 1.4 },
         },
         isStartRender: false,
     },
@@ -357,7 +357,7 @@ export const ELEMENTS_DATA = [
         resizeData: {
             GOR_FRAME:    { x: 3.6, y: -.5, scale: 1.8 },
             TOP_FRAME:    { x: 3.6, y: -.5, scale: 1.2 },
-            SQUARE_FRAME: { x: 3.6, y: -.5, scale: 1.8 },
+            SQUARE_FRAME: { x: 3.6, y: -.5, scale: 1.4 },
         },
         isStartRender: false,
     },
