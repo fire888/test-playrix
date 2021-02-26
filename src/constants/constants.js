@@ -338,7 +338,7 @@ export const ELEMENTS_DATA = [
             keyCarpetImg: 'carpet1Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 2.3, y: -0.2, scale: 1.8 },
+            GOR_FRAME:    { x: 2.41, y: -0.2, scale: 1.8 },
             TOP_FRAME:    { x: 1.7, y: 0,    scale: 1.2 },
             SQUARE_FRAME: { x: 2.3, y: 0,    scale: 1.4 },
         },
