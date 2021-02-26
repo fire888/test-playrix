@@ -77,7 +77,7 @@ export const ELEMENTS_DATA = [
         resizeData: {
             GOR_FRAME:    { x: 0, y: 0, scale: 1.75 },
             TOP_FRAME:    { x: 0, y: 0, scale: 1.15 },
-            SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
+            SQUARE_FRAME: { x: 0, y: 0, scale: 1.2  },
         },
         isStartRender: true,
     },
@@ -85,7 +85,6 @@ export const ELEMENTS_DATA = [
     /** ************************************
      * ITEMS
      ***************************************/
-
 
     {
         key: 'plant01',
@@ -207,7 +206,6 @@ export const ELEMENTS_DATA = [
         },
         isStartRender: true,
     },
-
     {
         key: 'stairs01',
         constructorElem: Stairs,
@@ -227,7 +225,6 @@ export const ELEMENTS_DATA = [
         },
         isStartRender: false,
     },
-
     {
         key: 'stairs02',
         constructorElem: Stairs,
@@ -247,7 +244,6 @@ export const ELEMENTS_DATA = [
         },
         isStartRender: false,
     },
-
     {
         key: 'stairs03',
         constructorElem: Stairs,
