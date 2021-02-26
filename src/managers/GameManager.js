@@ -137,10 +137,11 @@ export class GameManager {
         items.forEach(item => item.onClick(key => {
             tween.toggleView(confirmItem, 1)
             tween.dropDown(confirmItem, 'spr', 70)
-
             item.container.addChild(confirmItem.container)
+            
             items.forEach(item => item.clearCurrent())
             item.setCurrent()
+            
             onSelect(key)
         }))
 
