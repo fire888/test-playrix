@@ -10,6 +10,11 @@ About
 ------------
 Test task by [specification](https://drive.google.com/file/d/17Dl4rjo0l2D83olU1yYjUTQuVUeVgrHW/view).
 
+- Lazy loading
+- Adaptive design
+- Logging
+- Resetto start state
+
 
 Play
 ------------
