@@ -311,7 +311,6 @@ export const ELEMENTS_DATA = [
     /** ************************************
      * CONTROLS
      ***************************************/
-
     {
         key: 'btnStairs01',
         constructorElem: ButtonWithIcon,
