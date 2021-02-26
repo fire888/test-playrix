@@ -30,6 +30,7 @@ export class Tween {
             .then(() => {
                 if (toValue === 0) {
                     item.container.renderable = false
+                    item.container.alpha = 1
                 }
             })
     }

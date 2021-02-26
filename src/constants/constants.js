@@ -369,7 +369,8 @@ export const ELEMENTS_DATA = [
              btnOkImg,
          },
          config: {
-             keyImg: 'btnOkImg'
+             keyImg: 'btnOkImg',
+             scaleImg: .6,
          },
          isStartRender: false,
     },

@@ -6,9 +6,10 @@ export class Btn {
     }
 
     init () {
-        const { keyImg } = this._config
+        const { keyImg, scaleImg } = this._config
         this.spr = PIXI.Sprite.from(keyImg)
         this.spr.anchor.set(.5)
+        scaleImg && this.spr.scale.set(scaleImg)
 
         this.container.addChild(this.spr)
     }

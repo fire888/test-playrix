@@ -123,10 +123,6 @@ export class GameManager {
             this._appData.elements[key].container.renderable = isStartRender
         }
 
-        // TODO: very bad... move to config
-        /** show broken stairs again */
-        this._appData.elements['stairs00'].container.alpha = 1
-
         /** onComplete */
         let { restarted } = this._appData
         onComplete({ restarted: ++restarted || 1 })
@@ -140,7 +136,7 @@ export class GameManager {
 
         items.forEach(item => item.onClick(key => {
             tween.toggleView(confirmItem, 1)
-            tween.dropDown(confirmItem, 'spr', 100)
+            tween.dropDown(confirmItem, 'spr', 70)
 
             item.container.addChild(confirmItem.container)
             items.forEach(item => item.clearCurrent())
