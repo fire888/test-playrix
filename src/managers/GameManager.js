@@ -5,7 +5,7 @@ export class GameManager {
     startStairsPlay (appData, onComplete) {
         this._appData = appData
 
-        const { tween, resizer, elements } = this._appData
+        const { tween, elements } = this._appData
 
         const {
             btnHummer,
@@ -39,7 +39,6 @@ export class GameManager {
         ))
         .then(waitForClick.bind(this, btnHummer))
         .then(pause.bind(null, 0, () => {
-            resizer.resize()
 
             /** hide old stairs */
             tween.stopPulse('btnHummer')
