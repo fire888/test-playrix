@@ -17,7 +17,7 @@ import carpet3Img from '../assets/carpet3.png'
 
 
 import { EasySprite } from '../elements/EasySprite'
-import backImg from '../assets/back.png'
+import backImg from '../assets/back.jpg'
 import logoImg from '../assets/logo.png'
 import austinImg from '../assets/austin.png'
 import item1Img from '../assets/item_1.png'
@@ -75,7 +75,7 @@ export const ELEMENTS_DATA = [
             keyImg: 'backImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
+            GOR_FRAME:    { x: 0, y: 0, scale: 1.75 },
             TOP_FRAME:    { x: 0, y: 0, scale: 1.1 },
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         },
@@ -174,11 +174,12 @@ export const ELEMENTS_DATA = [
     {
         key: 'plant03',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         config: {
             keyImg: 'item2Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 4.5, y: -2, scale: 1.6 },
+            GOR_FRAME:    { x: 4,   y: -2, scale: 1.6 },
             TOP_FRAME:    { x: 4,   y: -2, scale: 1.6 },
             SQUARE_FRAME: { x: 4,   y: -2, scale: 1.6 },
         },
@@ -200,7 +201,7 @@ export const ELEMENTS_DATA = [
             keyImgs: ['stairs_00Img']
         },
         resizeData: {
-            GOR_FRAME:    { x: 6.7, y: 0, scale: 1.4 },
+            GOR_FRAME:    { x: 6.5, y: 0, scale: 1.4 },
             TOP_FRAME:    { x: 9,   y: 0, scale: 1.2 },
             SQUARE_FRAME: { x: 7.5, y: 0, scale: 1.4 },
         },
@@ -288,7 +289,7 @@ export const ELEMENTS_DATA = [
         isStartRender: true,
     },
     {
-        key: 'plant02',
+        key: 'bigBottomPlant',
         constructorElem: EasySprite,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 

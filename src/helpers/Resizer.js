@@ -48,8 +48,8 @@ export class Resizer {
         this._domWrapper.style.width = w + 'px'
         this._domWrapper.style.height = h + 'px'
 
-        this.domContainer.style.maxWidth = h * 2 + 'px'
-        this.domContainer.style.maxHeight = w * 2 + 'px'
+        this.domContainer.style.maxWidth = h * 2.2 + 'px'
+        this.domContainer.style.maxHeight = w * 2.2 + 'px'
         this.domContainer.style.width = w + 'px'
         this.domContainer.style.height = h + 'px'
 
@@ -57,8 +57,8 @@ export class Resizer {
             this._app.app.resize()
             this._app.app.view.style.width = w + 'px'
             this._app.app.view.style.height = h + 'px'
-            this._app.app.view.style.maxWidth = h * 2 + 'px'
-            this._app.app.view.style.maxHeight = w * 2 + 'px'
+            this._app.app.view.style.maxWidth = h * 2.2 + 'px'
+            this._app.app.view.style.maxHeight = w * 2.2 + 'px'
             /** set game container to center */
             this._app.container.x = this._app.app.view.width / 2 / this.resolution
             this._app.container.y = this._app.app.view.height / 2 / this.resolution
@@ -94,7 +94,7 @@ const getAppSteps = (windowRatio, mode, w, h) => {
 
     if (mode === GOR_FRAME) {
         /** Max width equal two app heights */
-        appW = windowRatio < 2 ? w : h * 2
+        appW = windowRatio < 2.2 ? w : h * 2.2
         appH = h
     } else if (mode === SQUARE_FRAME) {
         appW = w
@@ -102,7 +102,7 @@ const getAppSteps = (windowRatio, mode, w, h) => {
     } else if (mode === TOP_FRAME) {
         /** Max height equal two app width */
         appW = w
-        appH = windowRatio > .4 ? h : w * 2
+        appH = windowRatio > .4 ? h : w * 2.2
     }
 
     const stepW = appW / SEGMENTS
