@@ -7,6 +7,7 @@ export class Tween {
         this._frameUpdater.addFunction(this._updateTweens.bind(this))
     }
 
+
     /** public ********************************** */
 
     toggleView(item, toValue) {
@@ -126,7 +127,6 @@ export class Tween {
 
     /** intrnal  ******************************** */
 
-
     _create (data) {
         let onComplete = () => {}
         const key = rand()
@@ -208,7 +208,7 @@ const tweens = {
 
 const rand = () => Math.floor(Math.random() * 100000)
 
-const lerp = (x1, x2, t) => x1 * (1 - t) + x2 * t;
+const lerp = (x1, x2, t) => x1 * (1 - t) + x2 * t
 
 const interpolateTwoVals = (x1, x2, x3, x4, t) => {
     const v1 = (1-t)**3 * x1;
@@ -218,7 +218,6 @@ const interpolateTwoVals = (x1, x2, x3, x4, t) => {
     return v1 + v2 + v3 + v4
 }
 
-
 const C4 = (2 * Math.PI) / 3
 const easeOutElastic = x =>
     x === 0
@@ -226,5 +225,3 @@ const easeOutElastic = x =>
       : x === 1
         ? 1
         : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * C4) + 1
-
-
