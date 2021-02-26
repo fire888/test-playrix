@@ -11,7 +11,6 @@ module.exports = () => {
             host: 'localhost',
             compress: true,
             port: 9000,
-            // allowedHosts: ['ci.ait']
         }
     });
     return config
