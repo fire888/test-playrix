@@ -114,11 +114,11 @@ export class GameManager {
 
     resetToStart (appData, onComplete) {
         this._appData = appData
-        const { startComponentsData } = this._appData
+        const { componentsData } = this._appData
 
         /** reset all items */
-        for (let i = 0; i < startComponentsData.length; ++i) {
-            const { key, isStartRender } = startComponentsData[i]
+        for (let i = 0; i < componentsData.length; ++i) {
+            const { key, isStartRender } = componentsData[i]
             this._appData.components[key].container.renderable = isStartRender
         }
 

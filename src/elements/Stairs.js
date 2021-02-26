@@ -1,9 +1,11 @@
 export class Stairs {
     constructor ({ config }) {
-        const { keyImgs } = config
-
+        this._config = config
         this.container = new PIXI.Container()
+    }
 
+    init () {
+        const { keyImgs } = this._config
         this.sprites = []
         for (let i = 0; i < keyImgs.length; ++i) {
             const spr = new PIXI.Sprite.from(keyImgs[i])

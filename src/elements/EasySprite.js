@@ -1,7 +1,13 @@
 export class EasySprite {
     constructor ({ config }) {
-        const { keyImg } = config
-        this.container = new PIXI.Sprite.from(keyImg)
-        this.container.anchor.set(.5)
+        this._config = config
+        this.container = new PIXI.Container()
+    }
+
+    init () {
+        const { keyImg } = this._config
+        const sp = new PIXI.Sprite.from(keyImg)
+        sp.anchor.set(.5)
+        this.container.addChild(sp)
     }
 }

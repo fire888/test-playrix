@@ -1,9 +1,12 @@
 export class Btn {
     constructor ({ key, config }) {
+        this._config = config
         this.key = key
-        this.container = new PIXI.Container()   
-        
-        const { keyImg } = config
+        this.container = new PIXI.Container()
+    }
+
+    init () {
+        const { keyImg } = this._config
         this.spr = PIXI.Sprite.from(keyImg)
         this.spr.anchor.set(.5)
 

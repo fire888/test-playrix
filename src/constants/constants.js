@@ -1,6 +1,7 @@
 import { MessageFinal } from '../elements/MessageFinal'
 import messageFinalImg from '../assets/message-final.png'
 
+
 import { Btn } from '../elements/Btn'
 import continueImg from '../assets/btn-continue.png'
 import iconHummerImg from '../assets/icon-hummer.png'
@@ -27,7 +28,6 @@ import item5Img from '../assets/item_5.png'
 import item6Img from '../assets/item_6.png'
 
 
-
 import { Stairs } from '../elements/Stairs'
 import stairs_00Img from '../assets/stairs_00.png'
 import stairs_01_01Img from '../assets/stairs_01_01.png'
@@ -41,24 +41,24 @@ import stairs_03_02Img from '../assets/stairs_03_02.png'
 import stairs_03_03Img from '../assets/stairs_03_03.png'
 
 
-
-
 export const GOR_FRAME = 'GOR_FRAME'
 export const TOP_FRAME = 'TOP_FRAME'
 export const SQUARE_FRAME = 'SQUARE_FRAME'
 export const APP_HEIGHT_CLIPART = 1000
 export const SEGMENTS = 10
 
+
 export const DARK_W = 3000
 export const DARK_H = 3000
 export const DARK_ALPHA = .7
 
 
+/** loading flags */
+export const LOADING_00 = 'LOADING_00'
+export const LOADING_01 = 'LOADING_01'
 
 
-
-
-export const START_COMPONENTS_DATA = [
+export const COMPONENTS_DATA = [
 
     /** ************************************
      * BACK
@@ -67,6 +67,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'background',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             backImg, 
         },
@@ -75,7 +76,7 @@ export const START_COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 0, scale: 1.8 },
-            TOP_FRAME:   { x: 0, y: 0, scale: 1.1   },
+            TOP_FRAME:    { x: 0, y: 0, scale: 1.1   },
             SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
         },
         isStartRender: true,
@@ -89,6 +90,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'plant01',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item2Img,
         },
@@ -121,6 +123,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'table',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item5Img,
         },
@@ -137,6 +140,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'globe',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item4Img,
         },
@@ -153,6 +157,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'hero',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             austinImg,
         },
@@ -187,6 +192,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'stairs00',
         constructorElem: Stairs,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: {
             stairs_00Img,
         },
@@ -204,6 +210,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'stairs01',
         constructorElem: Stairs,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             stairs_01_01Img,
             stairs_01_02Img,
@@ -223,6 +230,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'stairs02',
         constructorElem: Stairs,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             stairs_02_01Img,
             stairs_02_02Img,
@@ -242,6 +250,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'stairs03',
         constructorElem: Stairs,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             stairs_03_01Img,
             stairs_03_02Img,
@@ -264,6 +273,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'sofa',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item1Img,
         },
@@ -271,15 +281,16 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'item1Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: -4, y: 2.5, scale: 1.6 },
-            TOP_FRAME:    { x: -100, y: 3, scale: 1.4   },
-            SQUARE_FRAME: { x: -5, y: 3, scale: 1.6 },
+            GOR_FRAME:    { x: -4,    y: 2.5, scale: 1.6 },
+            TOP_FRAME:    { x: -100,  y: 3,   scale: 1.4 },
+            SQUARE_FRAME: { x: -5,    y: 3,   scale: 1.6 },
         },
         isStartRender: true,
     },
     {
         key: 'plant02',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item6Img,
         },
@@ -302,6 +313,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'btnStairs01',
         constructorElem: BtnStairs,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             btnOkImg,
             iconHoverImg,
@@ -321,6 +333,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'btnStairs02',
         constructorElem: BtnStairs,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             carpet1Img,
         },
@@ -329,14 +342,15 @@ export const START_COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 2.3, y: -0.2, scale: 1.1 },
-            TOP_FRAME:    { x: 1.7, y: 0, scale: 0.8 },
-            SQUARE_FRAME: { x: 2.3, y: 0, scale: 1.1 },
+            TOP_FRAME:    { x: 1.7, y: 0,    scale: 0.8 },
+            SQUARE_FRAME: { x: 2.3, y: 0,    scale: 1.1 },
         },
         isStartRender: false,
     },
     {
         key: 'btnStairs03',
         constructorElem: BtnStairs,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             carpet3Img,
         },
@@ -353,6 +367,7 @@ export const START_COMPONENTS_DATA = [
     {
          key: 'btnConfirm',
          constructorElem: Btn,
+        assetsLoadingFlag: LOADING_01,
          assetsToLoad: {
              btnOkImg,
          },
@@ -364,6 +379,7 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'btnHummer',
         constructorElem: Btn,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             iconHummerImg,
         },
@@ -380,19 +396,21 @@ export const START_COMPONENTS_DATA = [
     {
         key: 'messageFinal',
         constructorElem: MessageFinal,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             messageFinalImg,
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: -.5, scale: 1.2 },
-            TOP_FRAME:   { x: 0, y: -.5, scale: .7 },
-            SQUARE_FRAME: { x: 0, y: -.5, scale: .8 },
+            TOP_FRAME:    { x: 0, y: -.5, scale: .7  },
+            SQUARE_FRAME: { x: 0, y: -.5, scale: .8  },
         },
         isStartRender: false,
     },
     {
         key: 'logo',
         constructorElem: EasySprite,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: {
             logoImg,
         },
@@ -400,15 +418,16 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'logoImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: -3.5, y: -4, scale: 1.2 },
-            TOP_FRAME:   { x: 0, y: -3.5, scale: .9 },
-            SQUARE_FRAME: { x: -3, y: -4, scale: 1.2 },
+            GOR_FRAME:    { x: -3.5, y: -4, scale: 1.2  },
+            TOP_FRAME:    { x: 0,    y: -3.5, scale: .9 },
+            SQUARE_FRAME: { x: -3,   y: -4, scale: 1.2  },
         },
         isStartRender: true,
     },
     {
         key: 'btnContinue',
         constructorElem: Btn,
+        assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             continueImg,
         },
@@ -416,8 +435,8 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'continueImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: 0, y: 3.5,   scale: .8 },
-            TOP_FRAME:   { x: 0,  y: 3.5, scale: .6 },
+            GOR_FRAME:    { x: 0, y: 3.5,   scale: .8  },
+            TOP_FRAME:    { x: 0,  y: 3.5, scale: .6   },
             SQUARE_FRAME: { x: 0,  y: 3.5,   scale: .8 },
         },
         isStartRender: false,

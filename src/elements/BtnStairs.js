@@ -1,10 +1,12 @@
 export class BtnStairs {
     constructor ({ key, config }) {
         this.key = key
-
-        const { keyCarpetImg } = config
-
+        this._config = config
         this.container = new PIXI.Container()
+    }
+
+    init () {
+        const { keyCarpetImg } = this._config
 
         this.spr = new PIXI.Container()
         this.container.addChild(this.spr)

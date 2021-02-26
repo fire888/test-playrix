@@ -4,20 +4,21 @@ import { Resizer } from './helpers/Resizer'
 import { FrameUpdater } from './helpers/FrameUpdater'
 import { Tween } from './helpers/Tween'
 import { GameManager } from './managers/GameManager'
-import { START_COMPONENTS_DATA } from './constants/constants'
+import { COMPONENTS_DATA } from './constants/constants'
+
+import { LOADING_00, LOADING_01 } from './constants/constants'
 
 
 
 
 /** app states **************************************** */
 
-const loadAssets = (appData, callback) => {
-    const { startComponentsData  } = appData
-    const loader = new LoaderAssets()
-    const assetsAll = getAssetsFromAppData(startComponentsData)
-    loader.load(assetsAll, () => callback(appData))
+const loadStartScreenAssets = (appData, callback) => {
+    const { componentsData  } = appData
+     const assets = getAssetsByLoadingFlag(componentsData, LOADING_00)
+     loadGameAssets(assets, () => callback(appData))
 }
- 
+
 
 const initApp = (appData, callback) => {
     const resizer = new Resizer()
@@ -40,12 +41,12 @@ const initApp = (appData, callback) => {
 }
 
 
-const addElements = (appData, callback) => {
-    const { app, resizer, emitter, startComponentsData } = appData
+const createComponents = (appData, callback) => {
+    const { app, resizer, emitter, componentsData } = appData
 
     const components = {}
-    for (let i = 0; i < startComponentsData.length; ++i) {
-        const { key, constructorElem, resizeData, isStartRender, config } = startComponentsData[i]
+    for (let i = 0; i < componentsData.length; ++i) {
+        const { key, constructorElem, resizeData, isStartRender, config } = componentsData[i]
         const component = new constructorElem({ key, emitter, config })
         component.container.renderable = isStartRender
         app.container.addChild(component.container)
@@ -57,6 +58,39 @@ const addElements = (appData, callback) => {
         ...appData,
         components,
     })
+}
+
+
+const initStartElements = (appData, callback) => {
+    const { componentsData } = appData
+    initElementsByProp({
+        prop: 'assetsLoadingFlag',
+        val: LOADING_00,
+        componentsData,
+        components: appData.components,
+    })
+
+    callback(appData)
+}
+
+
+const loadMoreGameAssets= (appData, callback) => {
+    const { componentsData  } = appData
+    const assets = getAssetsByLoadingFlag(componentsData, LOADING_01)
+    loadGameAssets(assets, () => callback(appData))
+}
+
+
+const initMoreGameElements = (appData, callback) => {
+    const { componentsData } = appData
+    initElementsByProp({
+        prop: 'assetsLoadingFlag',
+        val: LOADING_01,
+        componentsData,
+        components: appData.components,
+    })
+
+    callback(appData)
 }
 
 
@@ -105,15 +139,32 @@ const logComplete = (appData, callback) => {
 
 /** helpers ****************************************************** */
 
-const getAssetsFromAppData = data => {
+const getAssetsByLoadingFlag = (componentsData, flag) => {
+    const filteredComponents = componentsData.filter(item => item.assetsLoadingFlag === flag)
     const assets = {}
-    for (let i = 0; i < data.length; ++i) {
-        for (let keyAsset in data[i].assetsToLoad) {
-            assets[keyAsset] = data[i].assetsToLoad[keyAsset]
+    for (let i = 0; i < filteredComponents.length; ++i) {
+        for (let keyAsset in filteredComponents[i].assetsToLoad) {
+            assets[keyAsset] = filteredComponents[i].assetsToLoad[keyAsset]
         }
     }
     return assets
 }
+
+
+const loadGameAssets = (assets, callback) => {
+    const loader = new LoaderAssets()
+    loader.load(assets, callback)
+}
+
+
+const initElementsByProp = ({ prop,  val, componentsData, components  }) => {
+    for (let i = 0; i < componentsData.length; ++i) {
+        if (componentsData[i][prop] === val) {
+            components[componentsData[i].key].init()
+        }
+    }
+}
+
 
 const execute = (arr, data, index = 0) =>
     arr[index] && arr[index](data, newData => execute(arr, newData, ++index))
@@ -125,9 +176,12 @@ const execute = (arr, data, index = 0) =>
 
 execute(
     [
-        loadAssets,
+        loadStartScreenAssets,
         initApp,
-        addElements,
+        createComponents,
+        initStartElements,
+        loadMoreGameAssets,
+        initMoreGameElements,
         initAppManagers,
         startStairsGame,
         resetToStart,
@@ -139,5 +193,5 @@ execute(
         logProcess,
         logComplete,
     ], 
-    { startComponentsData: START_COMPONENTS_DATA },
+    { componentsData: COMPONENTS_DATA },
 )
