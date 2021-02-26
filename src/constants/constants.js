@@ -86,7 +86,6 @@ export const ELEMENTS_DATA = [
      * ITEMS
      ***************************************/
 
-
     {
         key: 'plant01',
         constructorElem: EasySprite,
@@ -207,7 +206,6 @@ export const ELEMENTS_DATA = [
         },
         isStartRender: true,
     },
-
     {
         key: 'stairs01',
         constructorElem: Stairs,
@@ -227,7 +225,6 @@ export const ELEMENTS_DATA = [
         },
         isStartRender: false,
     },
-
     {
         key: 'stairs02',
         constructorElem: Stairs,
@@ -247,7 +244,6 @@ export const ELEMENTS_DATA = [
         },
         isStartRender: false,
     },
-
     {
         key: 'stairs03',
         constructorElem: Stairs,
