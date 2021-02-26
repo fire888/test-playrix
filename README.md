@@ -23,4 +23,13 @@ Play
 [Let's play](http://js.otrisovano.ru/tests/210224_playrixTest/01/)
 
 
+Dev
+------------
+```
+npm install
+npm run start
+npm run build
+```
+
+
 
