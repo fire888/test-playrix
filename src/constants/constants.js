@@ -44,6 +44,10 @@ import stairs_03_03Img from '../assets/stairs_03_03.png'
 export const GOR_FRAME = 'GOR_FRAME'
 export const TOP_FRAME = 'TOP_FRAME'
 export const SQUARE_FRAME = 'SQUARE_FRAME'
+export const MAX_RATIO = 2.2
+export const RATIO_TOP = .7
+export const RATIO_GOR = 1.3
+export const DESKTOP_THRESHOLD = 700
 export const APP_HEIGHT_CLIPART = 1000
 export const SEGMENTS = 10
 
