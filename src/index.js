@@ -47,11 +47,11 @@ const createAllElements = (appData, callback) => {
     const elements = {}
     for (let i = 0; i < elementsData.length; ++i) {
         const { key, constructorElem, resizeData, isStartRender, config } = elementsData[i]
-        const component = new constructorElem({ key, emitter, config })
-        component.container.renderable = isStartRender
-        app.container.addChild(component.container)
-        resizeData && resizer.setElementToResize({ key, container: component.container, resizeData })
-        elements[key] = component
+        const elem = new constructorElem({ key, emitter, config })
+        elem.container.renderable = isStartRender
+        app.container.addChild(elem.container)
+        resizeData && resizer.setElementToResize({ key, container: elem.container, resizeData })
+        elements[key] = elem
     }
 
     callback({
