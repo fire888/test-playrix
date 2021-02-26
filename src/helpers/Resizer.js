@@ -103,7 +103,7 @@ const getAppData = (windowRatio, mode, w, h) => {
     } else if (mode === TOP_FRAME) {
         /** Max height equal two app width */
         appW = w
-        appH = windowRatio > .4 ? h : w * MAX_RATIO
+        appH = windowRatio > 1 / MAX_RATIO ? h : w * MAX_RATIO
     }
 
     const stepW = appW / SEGMENTS
