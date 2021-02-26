@@ -87,7 +87,7 @@ export const START_COMPONENTS_DATA = [
 
 
     {
-        key: 'item02',
+        key: 'plant01',
         constructorElem: EasySprite,
         assetsToLoad: { 
             item2Img,
@@ -96,9 +96,9 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'item2Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: -4, y: -3, scale: 1.8 },
-            TOP_FRAME:   { x: -4, y: -3, scale: 1   },
-            SQUARE_FRAME: { x: -4, y: -3, scale: 1.2 },
+            GOR_FRAME:    { x: -4, y: -1, scale: 1.2 },
+            TOP_FRAME:    { x: -4, y: -3, scale: 1   },
+            SQUARE_FRAME: { x: -4, y: -1, scale: 1.2 },
         },
         isStartRender: true,
     },
@@ -113,7 +113,7 @@ export const START_COMPONENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 5, y: -3, scale: 1.8 },
-            TOP_FRAME:   { x: 4, y: -3, scale: 1   },
+            TOP_FRAME:    { x: 4, y: -3, scale: 1   },
             SQUARE_FRAME: { x: 4, y: -3, scale: 1.2 },
         },
         isStartRender: true,
@@ -167,7 +167,7 @@ export const START_COMPONENTS_DATA = [
         isStartRender: true,
     },
     {
-        key: 'item02_2',
+        key: 'plant03',
         constructorElem: EasySprite,
         config: {
             keyImg: 'item2Img'
@@ -278,7 +278,7 @@ export const START_COMPONENTS_DATA = [
         isStartRender: true,
     },
     {
-        key: 'plunt',
+        key: 'plant02',
         constructorElem: EasySprite,
         assetsToLoad: { 
             item6Img,
@@ -371,7 +371,7 @@ export const START_COMPONENTS_DATA = [
             keyImg: 'iconHummerImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: 3,   y: 0, scale: 1.8 },
+            GOR_FRAME:    { x: 3,   y: 0, scale: 1.3 },
             TOP_FRAME:    { x: 1.5, y: 0, scale: 1.3 },
             SQUARE_FRAME: { x: 3,   y: 0, scale: 1.2 },
         },
