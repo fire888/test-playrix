@@ -11,7 +11,6 @@ export class Tween {
     /** public ********************************** */
 
     toggleView(item, toValue) {
-
         let fromValue = 1
         if (toValue === 1) {
             fromValue = 0

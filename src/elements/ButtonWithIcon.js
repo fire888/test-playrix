@@ -1,4 +1,4 @@
-export class BtnStairs {
+export class ButtonWithIcon {
     constructor ({ key, config }) {
         this.key = key
         this._config = config
@@ -6,7 +6,7 @@ export class BtnStairs {
     }
 
     init () {
-        const { keyCarpetImg } = this._config
+        const { keyIconImg } = this._config
 
         this.spr = new PIXI.Container()
         this.container.addChild(this.spr)
@@ -20,9 +20,9 @@ export class BtnStairs {
         this._hover.renderable = false
         this.spr.addChild(this._hover)
 
-        this._carpet = new PIXI.Sprite.from(keyCarpetImg)
-        this._carpet.anchor.set(.5)
-        this.spr.addChild(this._carpet)
+        this._icon = new PIXI.Sprite.from(keyIconImg)
+        this._icon.anchor.set(.5)
+        this.spr.addChild(this._icon)
     }
 
     onClick (func) {

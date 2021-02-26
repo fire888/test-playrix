@@ -1,13 +1,13 @@
-import { MessageFinal } from '../elements/MessageFinal'
+import { MessageDark } from '../elements/MessageDark'
 import messageFinalImg from '../assets/message-final.png'
 
 
-import { Btn } from '../elements/Btn'
+import { Button } from '../elements/Button'
 import continueImg from '../assets/btn-continue.png'
 import iconHummerImg from '../assets/icon-hummer.png'
 
 
-import { BtnStairs } from '../elements/BtnStairs'
+import { ButtonWithIcon } from '../elements/ButtonWithIcon'
 import btnOkImg from '../assets/btn-ok.png'
 import iconHoverImg from '../assets/icon-hover.png'
 import iconIdleImg from '../assets/icon-idle.png'
@@ -16,7 +16,7 @@ import carpet2Img from '../assets/carpet2.png'
 import carpet3Img from '../assets/carpet3.png'
 
 
-import { EasySprite } from '../elements/EasySprite'
+import { ContainerImage } from '../elements/ContainerImg'
 import backImg from '../assets/back.jpg'
 import logoImg from '../assets/logo.png'
 import austinImg from '../assets/austin.png'
@@ -28,7 +28,7 @@ import item5Img from '../assets/item_5.png'
 import item6Img from '../assets/item_6.png'
 
 
-import { Stairs } from '../elements/Stairs'
+import { ContainerManyImgs } from '../elements/ContainerManyImgs'
 import stairs_00Img from '../assets/stairs_00.png'
 import stairs_01_01Img from '../assets/stairs_01_01.png'
 import stairs_01_02Img from '../assets/stairs_01_02.png'
@@ -41,17 +41,19 @@ import stairs_03_02Img from '../assets/stairs_03_02.png'
 import stairs_03_03Img from '../assets/stairs_03_03.png'
 
 
-export const GOR_FRAME = 'GOR_FRAME'
-export const TOP_FRAME = 'TOP_FRAME'
-export const SQUARE_FRAME = 'SQUARE_FRAME'
 export const MAX_RATIO = 2.2
 export const RATIO_TOP = .7
 export const RATIO_GOR = 1.3
 export const DESKTOP_THRESHOLD = 700
 export const APP_HEIGHT_CLIPART = 1000
 export const SEGMENTS = 10
+/** window modes flags */
+export const GOR_FRAME = 'GOR_FRAME'
+export const TOP_FRAME = 'TOP_FRAME'
+export const SQUARE_FRAME = 'SQUARE_FRAME'
 
 
+export const DARK = 0x000000
 export const DARK_W = 3000
 export const DARK_H = 3000
 export const DARK_ALPHA = .7
@@ -67,10 +69,9 @@ export const ELEMENTS_DATA = [
     /** ************************************
      * BACK
      ***************************************/
-
     {
         key: 'background',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             backImg, 
@@ -89,10 +90,9 @@ export const ELEMENTS_DATA = [
     /** ************************************
      * ITEMS
      ***************************************/
-
     {
         key: 'plant01',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item2Img,
@@ -101,15 +101,16 @@ export const ELEMENTS_DATA = [
             keyImg: 'item2Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: -4, y: -1, scale: 1.2 },
-            TOP_FRAME:    { x: -4, y: -3, scale: 1   },
-            SQUARE_FRAME: { x: -4, y: -1, scale: 1.2 },
+            GOR_FRAME:    { x: -4, y: -1, scale: 1.3 },
+            TOP_FRAME:    { x: -4, y: -3, scale: 1.1 },
+            SQUARE_FRAME: { x: -4, y: -1, scale: 1.3 },
         },
         isStartRender: true,
     },
     {
-        key: 'item03',
-        constructorElem: EasySprite,
+        key: 'notes',
+        constructorElem: ContainerImage,
+        assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item3Img,
         },
@@ -117,7 +118,7 @@ export const ELEMENTS_DATA = [
             keyImg: 'item3Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 5, y: -3, scale: 1.8 },
+            GOR_FRAME:    { x: 4, y: -3, scale: 1.4 },
             TOP_FRAME:    { x: 4, y: -3, scale: 1   },
             SQUARE_FRAME: { x: 4, y: -3, scale: 1.2 },
         },
@@ -125,7 +126,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'table',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item5Img,
@@ -142,7 +143,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'globe',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item4Img,
@@ -159,7 +160,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'hero',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             austinImg,
@@ -176,15 +177,15 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'plant03',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         config: {
             keyImg: 'item2Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 4,   y: -2, scale: 1.6 },
-            TOP_FRAME:    { x: 4,   y: -2, scale: 1.6 },
-            SQUARE_FRAME: { x: 4,   y: -2, scale: 1.6 },
+            GOR_FRAME:    { x: 3,   y: -2, scale: 1.3 },
+            TOP_FRAME:    { x: 4,   y: -2, scale: 1.3 },
+            SQUARE_FRAME: { x: 4,   y: -2, scale: 1.3 },
         },
         isStartRender: true,
     },
@@ -195,7 +196,7 @@ export const ELEMENTS_DATA = [
      ***************************************/
     {
         key: 'stairs00',
-        constructorElem: Stairs,
+        constructorElem: ContainerManyImgs,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: {
             stairs_00Img,
@@ -212,7 +213,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'stairs01',
-        constructorElem: Stairs,
+        constructorElem: ContainerManyImgs,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             stairs_01_01Img,
@@ -231,7 +232,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'stairs02',
-        constructorElem: Stairs,
+        constructorElem: ContainerManyImgs,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             stairs_02_01Img,
@@ -250,7 +251,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'stairs03',
-        constructorElem: Stairs,
+        constructorElem: ContainerManyImgs,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             stairs_03_01Img,
@@ -273,7 +274,7 @@ export const ELEMENTS_DATA = [
      ***************************************/
     {
         key: 'sofa',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item1Img,
@@ -290,7 +291,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'bigBottomPlant',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: { 
             item6Img,
@@ -313,7 +314,7 @@ export const ELEMENTS_DATA = [
 
     {
         key: 'btnStairs01',
-        constructorElem: BtnStairs,
+        constructorElem: ButtonWithIcon,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             btnOkImg,
@@ -322,7 +323,7 @@ export const ELEMENTS_DATA = [
             carpet2Img,
         },
         config: {
-            keyCarpetImg: 'carpet2Img'
+            keyIconImg: 'carpet2Img'
         },
         resizeData: {
             GOR_FRAME:    { x: 1.3, y: 1, scale: 1.8 },
@@ -333,30 +334,30 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'btnStairs02',
-        constructorElem: BtnStairs,
+        constructorElem: ButtonWithIcon,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             carpet1Img,
         },
         config: {
-            keyCarpetImg: 'carpet1Img'
+            keyIconImg: 'carpet1Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 2.41, y: -0.2, scale: 1.8 },
-            TOP_FRAME:    { x: 1.7, y: 0,    scale: 1.2 },
-            SQUARE_FRAME: { x: 2.3, y: 0,    scale: 1.4 },
+            GOR_FRAME:    { x: 2.39, y: -0.2, scale: 1.8 },
+            TOP_FRAME:    { x: 1.7,  y: 0,    scale: 1.2 },
+            SQUARE_FRAME: { x: 2.3,  y: 0,    scale: 1.4 },
         },
         isStartRender: false,
     },
     {
         key: 'btnStairs03',
-        constructorElem: BtnStairs,
+        constructorElem: ButtonWithIcon,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             carpet3Img,
         },
         config: {
-            keyCarpetImg: 'carpet3Img'
+            keyIconImg: 'carpet3Img'
         },
         resizeData: {
             GOR_FRAME:    { x: 3.6, y: -.5, scale: 1.8 },
@@ -366,8 +367,8 @@ export const ELEMENTS_DATA = [
         isStartRender: false,
     },
     {
-         key: 'btnConfirm',
-         constructorElem: Btn,
+        key: 'btnConfirm',
+        constructorElem: Button,
         assetsLoadingFlag: LOADING_01,
          assetsToLoad: {
              btnOkImg,
@@ -380,7 +381,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'btnHummer',
-        constructorElem: Btn,
+        constructorElem: Button,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: { 
             iconHummerImg,
@@ -397,10 +398,13 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'messageFinal',
-        constructorElem: MessageFinal,
+        constructorElem: MessageDark,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             messageFinalImg,
+        },
+        config: {
+            keyMessageImg: 'messageFinalImg',
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: -.5, scale: 1.2 },
@@ -411,7 +415,7 @@ export const ELEMENTS_DATA = [
     },
     {
         key: 'logo',
-        constructorElem: EasySprite,
+        constructorElem: ContainerImage,
         assetsLoadingFlag: LOADING_00,
         assetsToLoad: {
             logoImg,
@@ -420,15 +424,15 @@ export const ELEMENTS_DATA = [
             keyImg: 'logoImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: -3, y: -4,   scale: 1.2  },
-            TOP_FRAME:    { x: 0,    y: -3.5, scale: .9   },
-            SQUARE_FRAME: { x: -2,   y: -4,   scale: 1.2  },
+            GOR_FRAME:    { x: -3,  y: -4,   scale: 1.2  },
+            TOP_FRAME:    { x: 0,   y: -4.2, scale: 1.2  },
+            SQUARE_FRAME: { x: -2,  y: -4,   scale: 1.2  },
         },
         isStartRender: true,
     },
     {
         key: 'btnContinue',
-        constructorElem: Btn,
+        constructorElem: Button,
         assetsLoadingFlag: LOADING_01,
         assetsToLoad: {
             continueImg,

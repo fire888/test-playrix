@@ -1,4 +1,4 @@
-export class EasySprite {
+export class ContainerImage {
     constructor ({ config }) {
         this._config = config
         this.container = new PIXI.Container()

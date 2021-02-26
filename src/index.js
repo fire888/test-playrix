@@ -4,9 +4,14 @@ import { Resizer } from './helpers/Resizer'
 import { FrameUpdater } from './helpers/FrameUpdater'
 import { Tween } from './helpers/Tween'
 import { GameManager } from './managers/GameManager'
-import { ELEMENTS_DATA } from './constants/constants'
+import {  } from './constants/constants'
 
-import { LOADING_00, LOADING_01 } from './constants/constants'
+import { 
+    ELEMENTS_DATA,
+    
+    LOADING_00, 
+    LOADING_01, 
+} from './constants/constants'
 
 
 
@@ -14,9 +19,9 @@ import { LOADING_00, LOADING_01 } from './constants/constants'
 /** app states **************************************** */
 
 const loadStartScreenAssets = (appData, callback) => {
-    const { elementsData  } = appData
-     const assets = getAssetsByLoadingFlag(elementsData, LOADING_00)
-     loadGameAssets(assets, () => callback(appData))
+    const { elementsData } = appData
+    const assets = getAssetsByLoadingFlag(elementsData, LOADING_00)
+    loadGameAssets(assets, () => callback(appData))
 }
 
 
@@ -62,13 +67,10 @@ const createAllElements = (appData, callback) => {
 
 
 const initStartElements = (appData, callback) => {
-    const { elementsData } = appData
-    initElementsByProp({
-        prop: 'assetsLoadingFlag',
-        val: LOADING_00,
-        elementsData,
-        elements: appData.elements,
-    })
+    const { elementsData, elements } = appData
+
+    const filtered = elementsData.filter(item => item.assetsLoadingFlag === LOADING_00)
+    filtered.forEach(item => elements[item.key].init())
 
     callback(appData)
 }
@@ -82,13 +84,10 @@ const loadMoreGameAssets= (appData, callback) => {
 
 
 const initMoreGameElements = (appData, callback) => {
-    const { elementsData } = appData
-    initElementsByProp({
-        prop: 'assetsLoadingFlag',
-        val: LOADING_01,
-        elementsData,
-        elements: appData.elements,
-    })
+    const { elementsData, elements } = appData
+
+    const filtered = elementsData.filter(item => item.assetsLoadingFlag === LOADING_01)
+    filtered.forEach(item => elements[item.key].init())
 
     callback(appData)
 }
@@ -140,11 +139,11 @@ const logComplete = (appData, callback) => {
 /** helpers ****************************************************** */
 
 const getAssetsByLoadingFlag = (elementsData, flag) => {
-    const filteredComponents = elementsData.filter(item => item.assetsLoadingFlag === flag)
+    const filtered = elementsData.filter(item => item.assetsLoadingFlag === flag)
     const assets = {}
-    for (let i = 0; i < filteredComponents.length; ++i) {
-        for (let keyAsset in filteredComponents[i].assetsToLoad) {
-            assets[keyAsset] = filteredComponents[i].assetsToLoad[keyAsset]
+    for (let i = 0; i < filtered.length; ++i) {
+        for (let key in filtered[i].assetsToLoad) {
+            assets[key] = filtered[i].assetsToLoad[key]
         }
     }
     return assets
@@ -154,15 +153,6 @@ const getAssetsByLoadingFlag = (elementsData, flag) => {
 const loadGameAssets = (assets, callback) => {
     const loader = new LoaderAssets()
     loader.load(assets, callback)
-}
-
-
-const initElementsByProp = ({ prop,  val, elementsData, elements  }) => {
-    for (let i = 0; i < elementsData.length; ++i) {
-        if (elementsData[i][prop] === val) {
-            elements[elementsData[i].key].init()
-        }
-    }
 }
 
 

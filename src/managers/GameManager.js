@@ -35,9 +35,10 @@ export class GameManager {
             tween.dropDown(btnHummer, 'spr', 70)
         })
         .then(pause.bind(null, 300, () => {
+
             tween.startPulse(btnHummer, 'spr', .2)}
         ))
-        .then(waitForClick.bind(this, btnHummer))
+        .then(waitForClick.bind(null, btnHummer))
         .then(pause.bind(null, 0, () => {
 
             /** hide old stairs */
@@ -98,7 +99,7 @@ export class GameManager {
             /** add pulse to continue button */
             tween.startPulse(btnContinue, 'spr', .3)
         }))
-        .then(waitForClick.bind(this, btnContinue))
+        .then(waitForClick.bind(null, btnContinue))
         .then(pause.bind(null, 0, () => {
 
             /** hide continue button */
@@ -115,12 +116,12 @@ export class GameManager {
 
     resetToStart (appData, onComplete) {
         this._appData = appData
-        const { elementsData } = this._appData
+        const { elementsData, elements } = this._appData
 
         /** reset all items */
         for (let i = 0; i < elementsData.length; ++i) {
             const { key, isStartRender } = elementsData[i]
-            this._appData.elements[key].container.renderable = isStartRender
+            elements[key].container.renderable = isStartRender
         }
 
         /** onComplete */

@@ -1,4 +1,4 @@
-export class Stairs {
+export class ContainerManyImgs {
     constructor ({ config }) {
         this._config = config
         this.container = new PIXI.Container()

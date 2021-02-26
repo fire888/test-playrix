@@ -1,4 +1,4 @@
-export class Btn {
+export class Button {
     constructor ({ key, config }) {
         this._config = config
         this.key = key
