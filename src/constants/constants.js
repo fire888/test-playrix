@@ -418,9 +418,9 @@ export const ELEMENTS_DATA = [
             keyImg: 'logoImg',
         },
         resizeData: {
-            GOR_FRAME:    { x: -3.5, y: -4,   scale: 1.2  },
+            GOR_FRAME:    { x: -3, y: -4,   scale: 1.2  },
             TOP_FRAME:    { x: 0,    y: -3.5, scale: .9   },
-            SQUARE_FRAME: { x: -3,   y: -4,   scale: 1.2  },
+            SQUARE_FRAME: { x: -2,   y: -4,   scale: 1.2  },
         },
         isStartRender: true,
     },
