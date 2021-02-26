@@ -76,8 +76,8 @@ export const ELEMENTS_DATA = [
         },
         resizeData: {
             GOR_FRAME:    { x: 0, y: 0, scale: 1.75 },
-            TOP_FRAME:    { x: 0, y: 0, scale: 1.1 },
-            SQUARE_FRAME: { x: 0, y: 0, scale: 1.2 },
+            TOP_FRAME:    { x: 0, y: 0, scale: 1.15 },
+            SQUARE_FRAME: { x: 0, y: 0, scale: 1.2  },
         },
         isStartRender: true,
     },
