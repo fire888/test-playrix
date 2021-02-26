@@ -18,7 +18,8 @@ Test task by [specification](https://drive.google.com/file/d/17Dl4rjo0l2D83olU1y
 
 Play
 ------------
-[![](https://github.com/fire888/test-playrix/blob/master/src/assets/austin.png)](http://js.otrisovano.ru/tests/210224_playrixTest/01/)
+[![](https://github.com/fire888/test-playrix/blob/master/src/assets/austin.png)](http://js.otrisovano.ru/tests/210224_playrixTest/01/)  
+
 [Let's play](http://js.otrisovano.ru/tests/210224_playrixTest/01/)
 
 
