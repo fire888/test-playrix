@@ -157,11 +157,9 @@ export class GameManager {
 
 const waitForClick = item => new Promise(resolve => item.onClick(resolve))
 
-const pause = (time, callback) => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            callback()
-            resolve()
-        }, time)
-    })
-}
+const pause = (time, callback) => new Promise(resolve => {
+    setTimeout(() => {
+        callback()
+        resolve()
+    }, time)
+})
