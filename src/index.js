@@ -41,7 +41,7 @@ const initApp = (appData, callback) => {
 }
 
 
-const createComponents = (appData, callback) => {
+const createAllElements = (appData, callback) => {
     const { app, resizer, emitter, elementsData } = appData
 
     const elements = {}
@@ -178,7 +178,7 @@ execute(
     [
         loadStartScreenAssets,
         initApp,
-        createComponents,
+        createAllElements,
         initStartElements,
         loadMoreGameAssets,
         initMoreGameElements,
