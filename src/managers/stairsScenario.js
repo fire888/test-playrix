@@ -3,8 +3,6 @@ import { tween } from '../helpers/Tween'
 
 
 export const startStairsPlay = (appData, onComplete) => {
-    const { elements } = appData
-
     const {
         btnHummer,
         btnStairs01,
@@ -17,7 +15,7 @@ export const startStairsPlay = (appData, onComplete) => {
         stairs03,
         messageFinal,
         btnContinue,
-    } = elements
+    } = appData.elements
 
 
     exec([
