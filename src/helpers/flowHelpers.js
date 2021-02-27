@@ -7,7 +7,7 @@ export const pause = (time, action) => callback => setTimeout(() => {
     callback()
 }, time)
 
-export const action = action => callback => {
-    action()
+export const action = f => callback => {
+    f()
     callback()
 }
