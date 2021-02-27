@@ -1,10 +1,9 @@
 import { App } from './elements/App'
 import { LoaderAssets } from './helpers/LoaderAssets'
 import { Resizer } from './helpers/Resizer'
-import { FrameUpdater } from './helpers/FrameUpdater'
-import { Tween } from './helpers/Tween'
-import { GameManager } from './managers/GameManager'
-import {  } from './constants/constants'
+
+import { startStairsPlay } from './managers/stairsScenario'
+import { resetToStart } from './managers/restart'
 
 import { 
     ELEMENTS_DATA,
@@ -33,15 +32,10 @@ const initApp = (appData, callback) => {
     resizer.domContainer.appendChild(app.app.view)
     resizer.setAppForResize(app)
 
-    const frameUpdater = new FrameUpdater()
-    const tween = new Tween(frameUpdater)
-
     callback({
         ...appData,
         app,
         resizer,
-        frameUpdater,
-        tween,
     })
 }
 
@@ -93,27 +87,16 @@ const initMoreGameElements = (appData, callback) => {
 }
 
 
-const initAppManagers = (appData, callback) => {
-    const gameManager = new GameManager()
-    return callback({
-        ...appData,
-        gameManager,
-    })
-}
-
-
 const startStairsGame = (appData, callback) => {
-    const { gameManager } = appData
-    gameManager.startStairsPlay(appData, newGameData => callback({
+    startStairsPlay(appData, newGameData => callback({
         ...appData,
         ...newGameData,
     }))
 }
 
 
-const resetToStart = (appData, callback) => {
-    const { gameManager } = appData
-    gameManager.resetToStart(appData, newGameData => {
+const reset = (appData, callback) => {
+    resetToStart(appData, newGameData => {
         callback({
         ...appData,
         ...newGameData,
@@ -172,12 +155,11 @@ execute(
         initStartElements,
         loadMoreGameAssets,
         initMoreGameElements,
-        initAppManagers,
         startStairsGame,
-        resetToStart,
+        reset,
         logProcess,
         startStairsGame,
-        resetToStart,
+        reset,
         logProcess,
         startStairsGame,
         logProcess,

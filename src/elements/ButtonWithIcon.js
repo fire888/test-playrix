@@ -28,16 +28,20 @@ export class ButtonWithIcon {
     onClick (func) {
         this.spr.buttonMode = true
         this.spr.interactive = true
-        this.spr.on('pointerdown', () => {
+
+        this._pointerDown = () => {
             this._hover.renderable = true
             func(this.key)
-        })
+        }
+
+        this.spr.on('pointerdown', this._pointerDown)
     }
 
     disable () {
         this.spr.buttonMode = false
         this.spr.interactive = false
         this._hover.renderable = false
+        this.spr.off('pointerdown', this._pointerDown)
     }
 
     setCurrent () {

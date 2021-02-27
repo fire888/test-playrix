@@ -5,7 +5,7 @@ const CONFIG = {
 const tickVal = CONFIG.defaultFPS / CONFIG.second
 
 
-export class FrameUpdater {
+class FrameUpdater {
     constructor () {
         this._lastStamp = null;
         this._arrFunctions = []
@@ -49,3 +49,6 @@ export class FrameUpdater {
         return 0
     }
 }
+
+
+export const frameUpdater = new FrameUpdater()

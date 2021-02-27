@@ -1,10 +1,12 @@
-export class Tween {
-    constructor (frameUpdater) {
+import { frameUpdater } from './FrameUpdater'
+
+
+class Tween {
+    constructor () {
         this._arrTweens = []
         this._pulseTweens = []
 
-        this._frameUpdater = frameUpdater
-        this._frameUpdater.addFunction(this._updateTweens.bind(this))
+        frameUpdater.addFunction(this._updateTweens.bind(this))
     }
 
 
@@ -185,6 +187,7 @@ export class Tween {
 
 
 
+
 const tweens = {
     'easeOutElastic': ({
             timeStarted,
@@ -254,3 +257,8 @@ const easeOutElastic = x =>
         : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * C4) + 1
 
 const easeOutCubic = x => 1 - Math.pow(1 - x, 3)
+
+
+
+
+export const tween = new Tween()

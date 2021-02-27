@@ -17,13 +17,16 @@ export class Button {
     onClick (func) {
         this.spr.buttonMode = true
         this.spr.interactive = true
-        this.spr.on('pointerdown', () => {
+
+        this._pointerDown = () => {
             func(this.key)
-        })
+        } 
+        this.spr.on('pointerdown', this._pointerDown)
     }
 
     disable () {
         this.spr.buttonMode = false
         this.spr.interactive = false
+        this.spr.off('pointerdown', this._pointerDown);
     }
 }
