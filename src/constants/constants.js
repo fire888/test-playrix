@@ -325,9 +325,9 @@ export const ELEMENTS_DATA = [
             keyIconImg: 'carpet2Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 1.3, y: 1, scale: 1.8 },
-            TOP_FRAME:    { x: 0.5, y: 1, scale: 1.2 },
-            SQUARE_FRAME: { x: 1.3, y: 1, scale: 1.4 },
+            GOR_FRAME:    { x: 1.3, y: 1, scale: 1.1 },
+            TOP_FRAME:    { x: 0.5, y: 1, scale: .8 },
+            SQUARE_FRAME: { x: 1.3, y: 1, scale: .9 },
         },
         isStartRender: false,
     },
@@ -342,9 +342,9 @@ export const ELEMENTS_DATA = [
             keyIconImg: 'carpet1Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 2.39, y: -0.2, scale: 1.8 },
-            TOP_FRAME:    { x: 1.7,  y: 0,    scale: 1.2 },
-            SQUARE_FRAME: { x: 2.3,  y: 0,    scale: 1.4 },
+            GOR_FRAME:    { x: 2.39, y: -0.2, scale: 1.1 },
+            TOP_FRAME:    { x: 1.7,  y: 0,    scale: .8 },
+            SQUARE_FRAME: { x: 2.3,  y: 0,    scale: .9 },
         },
         isStartRender: false,
     },
@@ -359,9 +359,9 @@ export const ELEMENTS_DATA = [
             keyIconImg: 'carpet3Img'
         },
         resizeData: {
-            GOR_FRAME:    { x: 3.6, y: -.5, scale: 1.8 },
-            TOP_FRAME:    { x: 3.6, y: -.5, scale: 1.2 },
-            SQUARE_FRAME: { x: 3.6, y: -.5, scale: 1.4 },
+            GOR_FRAME:    { x: 3.6, y: -.5, scale: 1.1 },
+            TOP_FRAME:    { x: 3.6, y: -.5, scale: .8 },
+            SQUARE_FRAME: { x: 3.6, y: -.5, scale: .9 },
         },
         isStartRender: false,
     },
@@ -373,8 +373,8 @@ export const ELEMENTS_DATA = [
              btnOkImg,
          },
          config: {
-             keyImg: 'btnOkImg',
-             scaleImg: .6,
+            keyImg: 'btnOkImg',
+            scaleImg: .8,
          },
          isStartRender: false,
     },

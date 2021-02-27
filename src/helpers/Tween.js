@@ -10,47 +10,37 @@ export class Tween {
 
     /** public ********************************** */
 
-    toggleView(item, toValue) {
+    toggleView (item, toValue) {
         let fromValue = 1
-        if (toValue === 1) {
+        if (toValue === 1) { 
             fromValue = 0
             item.container.alpha = 0
-            item.container.renderable = true
+            item.container.renderable = true 
         }
 
-        const show = this._create({
-            tweenType: 'linear',
+        const scale = this._create({
+            tweenType: 'easeOutCubic',
             fromValue,
             toValue,
-            duration: 100,
-            actionWithValue: val => item.container.alpha = val,
+            duration: 300,
+            actionWithValue: val => {
+                item.container.alpha = val
+            },
         })
-        show.start()
+        scale.start()
             .then(() => {
                 if (toValue === 0) {
                     item.container.renderable = false
                     item.container.alpha = 1
-                }
+                } 
             })
     }
 
 
-    showScale (item, keySprite) {
-        const scale = this._create({
-            tweenType: 'linear',
-            fromValue: .3,
-            toValue: 1,
-            duration: 300,
-            actionWithValue: val => item[keySprite].scale.set(val),
-        })
-        scale.start()
-    }
-
-
-    dropDown(item, key, size) {
+    showDrop (item, key, size) {
         const drop = sp => {
             const show = this._create({
-                tweenType: 'eraseTween',
+                tweenType: 'easeOutElastic',
                 fromValue: 0,
                 toValue: 1,
                 duration: 500,
@@ -73,10 +63,45 @@ export class Tween {
                 setTimeout(() => drop(item[key][i]), i * offsetTime)
             }
         } else {
-            item.container.alpha = 0
-            item.container.renderable = true
             drop(item[key])
+            item.container.renderable = true
         }
+    }
+
+
+    showScale (item, keySprite) {
+        const scale = this._create({
+            tweenType: 'easeOutCubic',
+            fromValue: 0,
+            toValue: 1,
+            duration: 300,
+            actionWithValue: val => {
+                item[keySprite].alpha = val
+                item[keySprite].scale.set(val)
+            },
+        })
+        scale.start()
+        item[keySprite].alpha = 0
+        item.container.renderable = true
+    }
+
+
+    hideScale (item, keySprite) {
+        const scale = this._create({
+            tweenType: 'easeOutCubic',
+            fromValue: 1,
+            toValue: 0,
+            duration: 300,
+            actionWithValue: val => {
+                item[keySprite].alpha = val
+                item[keySprite].scale.set(val)
+            },
+        })
+        scale.start()
+            .then(() => {
+                item.container.renderable = false
+                item[keySprite].alpha = 1
+            })
     }
 
 
@@ -87,7 +112,7 @@ export class Tween {
 
             const iterate = () => {
                 move = this._create({
-                    tweenType: 'autoUpdateColumnTwoVals',
+                    tweenType: 'autoUpdateTwoVals',
                     fromValue: 0,
                     middleValueOne: -.5,
                     middleValueTwo: .5,
@@ -161,20 +186,7 @@ export class Tween {
 
 
 const tweens = {
-    'linear': ({
-        timeStarted,
-        fromValue,
-        toValue,
-        duration,
-        actionWithValue,
-        callback,
-    }) => () => {
-        const phase = Math.min(1, (Date.now() - timeStarted) / duration)
-        actionWithValue((toValue - fromValue) * phase)
-        phase === 1 && callback()
-    },
-
-    'eraseTween': ({
+    'easeOutElastic': ({
             timeStarted,
             fromValue,
             toValue,
@@ -188,7 +200,22 @@ const tweens = {
             phase === 1 && callback()
         },
 
-    'autoUpdateColumnTwoVals': ({
+    'easeOutCubic': ({
+            timeStarted,
+            fromValue,
+            toValue,
+            duration,
+            actionWithValue,
+            callback,
+        }) => () => {
+            const phase = Math.min(1, (Date.now() - timeStarted) / duration)
+            const value = lerp(fromValue, toValue, easeOutCubic(phase))
+            actionWithValue(value)
+            phase === 1 && callback()
+        },
+
+
+    'autoUpdateTwoVals': ({
            timeStarted,
            fromValue,
            middleValueOne,
@@ -225,3 +252,5 @@ const easeOutElastic = x =>
       : x === 1
         ? 1
         : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * C4) + 1
+
+const easeOutCubic = x => 1 - Math.pow(1 - x, 3)

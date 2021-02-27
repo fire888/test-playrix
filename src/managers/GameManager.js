@@ -31,35 +31,33 @@ export class GameManager {
         pause(700, () => {
 
             /** show hummer */
-            tween.toggleView(btnHummer, 1)
-            tween.dropDown(btnHummer, 'spr', 70)
+            tween.showDrop(btnHummer, 'spr', 70)
         })
         .then(pause.bind(null, 300, () => {
 
-            tween.startPulse(btnHummer, 'spr', .2)}
-        ))
+            tween.startPulse(btnHummer, 'spr', .2)
+        }))
         .then(waitForClick.bind(null, btnHummer))
         .then(pause.bind(null, 0, () => {
 
             /** hide old stairs */
+            tween.toggleView(stairs00, 0)
+
+            /** hide button hummer */
             tween.stopPulse('btnHummer')
             btnHummer.disable()
             tween.toggleView(btnHummer, 0)
-            tween.toggleView(stairs00, 0)
 
             /** show stairs buttons */
-            tween.toggleView(btnStairs01, 1)
-            tween.showScale(btnStairs01, 'spr')
+            tween.showScale(btnStairs01, 'spr', 1)
         }))
         .then(pause.bind(null, 150, () => {
 
-            tween.toggleView(btnStairs02, 1)
-            tween.showScale(btnStairs02, 'spr')
+            tween.showScale(btnStairs02, 'spr', 1)
         }))
         .then(pause.bind(null, 150, () => {
 
-            tween.toggleView(btnStairs03, 1)
-            tween.showScale(btnStairs03, 'spr')
+            tween.showScale(btnStairs03, 'spr', 1)
         }))
         .then(this._selectFromElements.bind(this, [ btnStairs01, btnStairs02, btnStairs03 ], btnConfirm, clickedKey => {
 
@@ -73,8 +71,7 @@ export class GameManager {
             if (clickedKey === 'btnStairs02') stairs = stairs02
             if (clickedKey === 'btnStairs03') stairs = stairs03
 
-            tween.toggleView(stairs, 1)
-            tween.dropDown(stairs, 'sprites', 140)
+            tween.showDrop(stairs, 'sprites', 140)
         }))
         .then(pause.bind(null, 0, () => {
 
@@ -84,19 +81,32 @@ export class GameManager {
             btnStairs03.disable()
             btnConfirm.disable()
 
-            tween.toggleView(btnStairs01, 0)
-            tween.toggleView(btnStairs02, 0)
-            tween.toggleView(btnStairs03, 0)
             tween.toggleView(btnConfirm, 0)
-
-            /** show final message */
-            tween.toggleView(messageFinal, 1)
-            tween.toggleView(btnContinue, 1)
-            tween.dropDown(btnContinue, 'spr', 70)
         }))
-        .then(pause.bind(null, 300, () => {
+        .then(pause.bind(null, 150, () => {
 
-            /** add pulse to continue button */
+            tween.hideScale(btnStairs01, 'spr')
+        }))
+        .then(pause.bind(null, 150, () => {
+
+            tween.hideScale(btnStairs02, 'spr')
+        }))
+        .then(pause.bind(null, 150, () => {
+
+            tween.hideScale(btnStairs03, 'spr')
+        }))
+        .then(pause.bind(null, 150, () => {
+            
+            /** show final message */    
+            tween.toggleView(messageFinal, 1)
+        }))
+        .then(pause.bind(null, 150, () => {
+
+            /** show continue button */
+            tween.showDrop(btnContinue, 'spr', 70)
+        }))
+        .then(pause.bind(null, 150, () => {
+
             tween.startPulse(btnContinue, 'spr', .3)
         }))
         .then(waitForClick.bind(null, btnContinue))
@@ -136,8 +146,7 @@ export class GameManager {
         const { tween } = this._appData
 
         items.forEach(item => item.onClick(key => {
-            tween.toggleView(confirmItem, 1)
-            tween.dropDown(confirmItem, 'spr', 70)
+            tween.showDrop(confirmItem, 'spr', 80)
             item.container.addChild(confirmItem.container)
             
             items.forEach(item => item.clearCurrent())
