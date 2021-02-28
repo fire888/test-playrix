@@ -46,8 +46,8 @@ export class ButtonWithIcon {
 
     setCurrent () {
         this._hover.alpha = 1
-
     }
+    
     clearCurrent () {
         this._hover.alpha = 0
     }
