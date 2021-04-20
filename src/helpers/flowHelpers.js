@@ -1,6 +1,6 @@
 /** MAIN PIPE *************************/ 
 
-export const pipe = (arr, i = 0) => arr[i] && arr[i](() => exec(arr, ++i))
+export const pipe = (arr, i = 0) => arr[i] && arr[i](() => pipe(arr, ++i))
 export const exec = pipe
 
 
