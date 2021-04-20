@@ -12,8 +12,10 @@ export const exec = pipe
 export const waitForClick = item => callback => item.onClick(callback)
 
 export const pause = (time, f) => callback => setTimeout(() => {
-    f()
-    callback()
+    requestAnimationFrame(() => {
+        f()
+        callback()
+    })
 }, time)
 
 export const action = f => callback => {
