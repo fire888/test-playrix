@@ -1,4 +1,4 @@
-import { exec, waitForClick, pause, action } from '../helpers/flowHelpers' 
+import { pipe, waitForClick, pause, action } from '../helpers/flowHelpers' 
 import { tween } from '../helpers/Tween'
 
 
@@ -18,7 +18,7 @@ export const startStairsPlay = (appData, onComplete) => {
     } = appData.elements
 
 
-    exec([
+    pipe([
         pause(700, () => {
 
 
